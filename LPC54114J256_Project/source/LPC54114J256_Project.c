@@ -26,12 +26,6 @@
  * ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
  * (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- */
- 
-/**
- * @file    LPC54114J256_Project.c
- * @brief   Application entry point.
- */
 #include <stdio.h>
 #include "board.h"
 #include "peripherals.h"
@@ -40,7 +34,9 @@
 #include "LPC54114_cm4.h"
 #include "fsl_debug_console.h"
 /* TODO: insert other include files here. */
-
+#define SCT_CLK_FREQ CLOCK_GetFreq(kCLOCK_BusClk)
+#define PWM_Left kSCTIMER_Out_5
+#define PWM_Right	kSCTIMER_Out_7
 /* TODO: insert other definitions and declarations here. */
 
 /*
@@ -48,20 +44,60 @@
  */
 int main(void) {
 
-  	/* Init board hardware. */
-    BOARD_InitBootPins();
-    BOARD_InitBootClocks();
-    BOARD_InitBootPeripherals();
-  	/* Init FSL debug console. */
-    BOARD_InitDebugConsole();
+sctimer_config_t sctimerInfo;
+   sctimer_pwm_signal_param_t pwmParam;
+  // uint32_t stateNumber;
+   uint32_t event;
+   uint32_t sctimerClock;
 
-    PRINTF("Hello World\n");
+   /* Board pin, clock, debug console init */
+   /* attach 12 MHz clock to FLEXCOMM0 (debug consolie) */
+  // CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
 
-    /* Force the counter to be placed into memory. */
-    volatile static int i = 0 ;
-    /* Enter an infinite loop, just incrementing a counter. */
-    while(1) {
-        i++ ;
-    }
+   /* enable clock for GPIO*/
+   //CLOCK_EnableClock(kCLOCK_Gpio0);
+   //CLOCK_EnableClock(kCLOCK_Gpio1);
+
+   BOARD_InitPins();
+   BOARD_BootClockFROHF48M();
+   BOARD_InitDebugConsole();
+
+   sctimerClock = SCT_CLK_FREQ;
+
+   /* Default configuration operates the counter in 32-bit mode */
+   SCTIMER_GetDefaultConfig(&sctimerInfo);
+
+   /* Initialize SCTimer module */
+   SCTIMER_Init(SCT0, &sctimerInfo);
+   pwmParam.output = PWM_Left;
+   pwmParam.level = kSCTIMER_HighTrue;
+   pwmParam.dutyCyclePercent = 10;
+
+   /* Schedule events in current state; State 0 */
+   /* Schedule events for generating a 24KHz PWM with 10% duty cycle from first Out in the current state */
+        if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm, 24000U, sctimerClock, &event) ==
+          kStatus_Fail)
+        {
+          return -1;
+        }
+
+    pwmParam.output = PWM_Right;
+    pwmParam.level = kSCTIMER_HighTrue;
+    pwmParam.dutyCyclePercent = 10;
+
+    /* Schedule events in current state; State 0 */
+    /* Schedule events for generating a 24KHz PWM with 10% duty cycle from first Out in the current state */
+        if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm, 24000U, sctimerClock, &event) ==
+                kStatus_Fail)
+            {
+                return -1;
+            }
+
+     SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
+     while (1)
+        {
+        }
     return 0 ;
 }
+
+

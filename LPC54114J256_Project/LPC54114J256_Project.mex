@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding= "UTF-8" ?>
-<configuration name="LPC54114J256" version="1.5" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5.xsd" uuid="1cc498a1-3c11-41de-a7f5-f407848c3cb5" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<configuration name="LPC54114J256" version="1.5" xsi:schemaLocation="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5 http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5.xsd" uuid="ceb2f7cf-d943-4b6f-9295-35689f623d5e" xmlns="http://mcuxpresso.nxp.com/XSD/mex_configuration_1.5" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
    <common>
       <processor>LPC54114J256</processor>
       <package>LPC54114J256BD64</package>
@@ -46,7 +46,7 @@
                <pin_label pin_num="12" pin_signal="PIO0_30/FC1_TXD_SCL_MISO/SCT0_OUT3/CTIMER0_MAT2/CTIMER0_CAP2/ADC0_1" label="J9[2]/P0_30-ADC1"/>
                <pin_label pin_num="13" pin_signal="PIO0_31/PDM0_CLK/FC2_CTS_SDA_SSEL0/CTIMER2_CAP2/CTIMER0_CAP3/CTIMER0_MAT3/ADC0_2" label="J2[17]/J3[2]/P1[7]/U3[4]/SW2/P0_31-PDM0_CLK-ISP0_EN" identifier="SW2"/>
                <pin_label pin_num="14" pin_signal="PIO1_0/PDM0_DATA/FC2_RTS_SCL_SSEL1/CTIMER3_MAT1/CTIMER0_CAP0/ADC0_3" label="J2[3]/P1_0-PDM0_DATA-CT32B3_MAT1"/>
-               <pin_label pin_num="15" pin_signal="PIO1_1/SWO/SCT0_OUT4/FC5_SSEL2/FC4_TXD_SCL_MISO/ADC0_4" label="J1[15]/P1_1-FC5_SSEL2"/>
+               <pin_label pin_num="15" pin_signal="PIO1_1/SWO/SCT0_OUT4/FC5_SSEL2/FC4_TXD_SCL_MISO/ADC0_4" label="J1[15]/P1_1-FC5_SSEL2" identifier="right_f"/>
                <pin_label pin_num="16" pin_signal="PIO1_2/MCLK/FC7_SSEL3/SCT0_OUT5/FC5_SSEL3/FC4_RXD_SDA_MOSI/ADC0_5" label="J9[7]/JS8[1]/U5[1]/P1_2-FC5_SSEL3" identifier="SPI_FLASH_CS"/>
                <pin_label pin_num="17" pin_signal="PIO1_3/FC7_SSEL2/SCT0_OUT6/FC3_SCK/CTIMER0_CAP1/USB0_UP_LED/ADC0_6" label="J2[20]/P1_3-FC7_SSEL2-CT32B0_CAP1"/>
                <pin_label pin_num="18" pin_signal="PIO1_4/PDM1_CLK/FC7_RTS_SCL_SSEL1/SCT0_OUT7/FC3_TXD_SCL_MISO/CTIMER0_MAT1/ADC0_7" label="J2[18]/J9[10]/P1_4-ADC7-PDM1_CLK-FC7_RTS-FC3_TXD"/>
@@ -80,7 +80,7 @@
                <pin_label pin_num="52" pin_signal="PIO0_16/FC3_SSEL2/FC6_CTS_SDA_SSEL0/CTIMER3_MAT1/SWCLK" label="J2[4]/JS28/U4[4]/TCK-SWDCLK_TRGT-SPIFI_IO1" identifier="DEBUG_SWD_SWDCLK"/>
                <pin_label pin_num="53" pin_signal="PIO0_17/FC3_SSEL3/FC6_RTS_SCL_SSEL1/CTIMER3_MAT2/SWDIO" label="J2[6]/P1[2]/U2[5]/U14[4]/IF_TMS_SWDIO-SPIFI_IO0" identifier="DEBUG_SWD_SWDIO"/>
                <pin_label pin_num="54" pin_signal="PIO1_13/FC5_TXD_SCL_MISO/CTIMER1_MAT1/FC7_RXD_SDA_MOSI_DATA" label="J2[7]/P1_13-CT32B1_MAT1"/>
-               <pin_label pin_num="57" pin_signal="PIO1_14/FC2_RXD_SDA_MOSI/SCT0_OUT7/FC7_TXD_SCL_MISO_WS" label="J2[1]/P1_14-SCTO7" identifier="pwm_right"/>
+               <pin_label pin_num="57" pin_signal="PIO1_14/FC2_RXD_SDA_MOSI/SCT0_OUT7/FC7_TXD_SCL_MISO_WS" label="J2[1]/P1_14-SCTO7" identifier="Right;right_r"/>
                <pin_label pin_num="58" pin_signal="PIO0_18/FC5_TXD_SCL_MISO/SCT0_OUT0/CTIMER0_MAT0" label="J1[11]/U5[2]/P0_18-FC5_TXD_SCL_MISO" identifier="SPI_FLASH_MISO"/>
                <pin_label pin_num="59" pin_signal="PIO0_19/FC5_SCK/SCT0_OUT1/CTIMER0_MAT1" label="J1[9]/J2[8]/U5[6]/P0_19-FC5_SCK-SPIFI_CSn" identifier="SPI_FLASH_SCK"/>
                <pin_label pin_num="60" pin_signal="PIO0_20/FC5_RXD_SDA_MOSI/FC0_SCK/CTIMER3_CAP0" label="J1[13]/U5[5]/P0_20-FC5_RXD_SDA_MOSI" identifier="SPI_FLASH_MOSI"/>
@@ -112,7 +112,13 @@
                   </dependency>
                </dependencies>
                <pins>
-                  <pin peripheral="SCT0" signal="OUT, 7" pin_num="57" pin_signal="PIO1_14/FC2_RXD_SDA_MOSI/SCT0_OUT7/FC7_TXD_SCL_MISO_WS"/>
+                  <pin peripheral="SCT0" signal="OUT, 4" pin_num="15" pin_signal="PIO1_1/SWO/SCT0_OUT4/FC5_SSEL2/FC4_TXD_SCL_MISO/ADC0_4"/>
+                  <pin peripheral="SCT0" signal="OUT, 7" pin_num="57" pin_signal="PIO1_14/FC2_RXD_SDA_MOSI/SCT0_OUT7/FC7_TXD_SCL_MISO_WS">
+                     <pin_features>
+                        <pin_feature name="identifier" value="right_r"/>
+                        <pin_feature name="slew_rate" value="standard"/>
+                     </pin_features>
+                  </pin>
                </pins>
             </function>
             <function name="BOARD_InitLink2MCUPins">
@@ -588,7 +594,7 @@
             <processor_version>5.0.1</processor_version>
          </peripherals_profile>
          <functional_groups>
-            <functional_group name="BOARD_InitPeripherals" uuid="72e74eda-26be-4d70-8430-557a936061a4" called_from_default_init="true" id_prefix="" core="cm4">
+            <functional_group name="BOARD_InitPeripherals" uuid="cabbb5ef-e147-4f88-be3f-1fb3798b3c8c" called_from_default_init="true" id_prefix="" core="cm4">
                <description></description>
                <options/>
                <dependencies/>
