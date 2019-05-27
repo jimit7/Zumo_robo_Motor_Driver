@@ -88,7 +88,7 @@ int main(void)
     GPIO_PortInit(GPIO, GPIO_PORT);
 
     /* Init output LED GPIO. */
-    GPIO_PortInit(GPIO, GPIO_PORT);
+
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN1, &led_config);
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN2, &led_config);
     GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN1, &led_config);
