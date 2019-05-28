@@ -77,20 +77,39 @@ int main(void)
     if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
     {
         return -1;
-    }
-    SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
+    }printf("one");
+    if(pin ==1)
+    {
+    	 pwmParam.output = DEMO_FIRST_SCTIMER_OUT;
+    	    pwmParam.level = kSCTIMER_HighTrue;
+    	    pwmParam.dutyCyclePercent = 0;
+    	    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
+    	    {
+    	        return -1;
+    	    }printf("first off");
     }
 
  if((pin==1)){
     /* Configure second PWM with different duty cycle but same frequency as before */
     pwmParam.output = DEMO_SECOND_SCTIMER_OUT;
     pwmParam.level = kSCTIMER_HighTrue;
-    pwmParam.dutyCyclePercent = 50;
+    pwmParam.dutyCyclePercent = 0;
     PRINTF("forward");
     if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
     {
         return -1;
-    }
+    }printf("second on");
+    if(pin ==0)
+       {
+       	 pwmParam.output = DEMO_SECOND_SCTIMER_OUT;
+       	    pwmParam.level = kSCTIMER_HighTrue;
+       	    pwmParam.dutyCyclePercent = 0;
+       	    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
+       	    {
+       	        return -1;
+       	    }
+       	    printf("second off");
+       }
     SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
     PRINTF("forward+\n");
     }
@@ -102,5 +121,6 @@ int main(void)
     while (1)
     {
     }}
+}
 }
 

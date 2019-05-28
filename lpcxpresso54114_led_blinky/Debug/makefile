@@ -37,7 +37,7 @@ all: lpcxpresso54114_led_blinky.axf
 lpcxpresso54114_led_blinky.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs" -Xlinker -Map="lpcxpresso54114_led_blinky.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso54114_led_blinky_Debug.ld -o "lpcxpresso54114_led_blinky.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs" -Xlinker -Map="lpcxpresso54114_led_blinky.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso54114_led_blinky_Debug.ld -o "lpcxpresso54114_led_blinky.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

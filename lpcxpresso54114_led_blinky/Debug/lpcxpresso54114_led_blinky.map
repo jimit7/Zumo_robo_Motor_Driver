@@ -1,6 +1,6 @@
 Archive member included to satisfy reference by file (symbol)
 
-/home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+/home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
                               ./drivers/fsl_clock.o (POWER_SetVoltageForFreq)
 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
                               ./startup/startup_lpc5411x.o (__main)
@@ -11,7 +11,7 @@ Archive member included to satisfy reference by file (symbol)
 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(__sys_appexit.o)
                               /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr_assert.o) (__sys_appexit)
 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_c.a(memcpy.o)
-                              /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o) (memcpy)
+                              /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o) (memcpy)
 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_c.a(memset.o)
                               ./utilities/fsl_debug_console.o (memset)
 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_c.a(_deferredlazyseek.o)
@@ -148,7 +148,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0xd2 ./utilities/fsl_assert.o
  .debug_macro   0x0000000000000000       0x1c ./utilities/fsl_assert.o
  .debug_line    0x0000000000000000      0x31f ./utilities/fsl_assert.o
- .debug_str     0x0000000000000000    0x4520b ./utilities/fsl_assert.o
+ .debug_str     0x0000000000000000    0x451f7 ./utilities/fsl_assert.o
  .comment       0x0000000000000000       0x80 ./utilities/fsl_assert.o
  .debug_frame   0x0000000000000000       0x30 ./utilities/fsl_assert.o
  .ARM.attributes
@@ -291,7 +291,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x7b ./utilities/fsl_str.o
  .debug_macro   0x0000000000000000       0x54 ./utilities/fsl_str.o
  .debug_line    0x0000000000000000      0x5c9 ./utilities/fsl_str.o
- .debug_str     0x0000000000000000    0x4549e ./utilities/fsl_str.o
+ .debug_str     0x0000000000000000    0x4548a ./utilities/fsl_str.o
  .comment       0x0000000000000000       0x80 ./utilities/fsl_str.o
  .debug_frame   0x0000000000000000       0xb4 ./utilities/fsl_str.o
  .ARM.attributes
@@ -307,7 +307,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x11 ./startup/boot_multicore_slave.o
  .debug_macro   0x0000000000000000      0xa96 ./startup/boot_multicore_slave.o
  .debug_line    0x0000000000000000       0x42 ./startup/boot_multicore_slave.o
- .debug_str     0x0000000000000000     0x2ddd ./startup/boot_multicore_slave.o
+ .debug_str     0x0000000000000000     0x2dc9 ./startup/boot_multicore_slave.o
  .comment       0x0000000000000000       0x80 ./startup/boot_multicore_slave.o
  .ARM.attributes
                 0x0000000000000000       0x39 ./startup/boot_multicore_slave.o
@@ -563,7 +563,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x73 ./drivers/fsl_common.o
  .debug_macro   0x0000000000000000       0x7b ./drivers/fsl_common.o
  .debug_line    0x0000000000000000      0x365 ./drivers/fsl_common.o
- .debug_str     0x0000000000000000    0x4556c ./drivers/fsl_common.o
+ .debug_str     0x0000000000000000    0x45558 ./drivers/fsl_common.o
  .comment       0x0000000000000000       0x80 ./drivers/fsl_common.o
  .debug_frame   0x0000000000000000      0x138 ./drivers/fsl_common.o
  .ARM.attributes
@@ -722,7 +722,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x7b ./drivers/fsl_power.o
  .debug_macro   0x0000000000000000       0x22 ./drivers/fsl_power.o
  .debug_line    0x0000000000000000      0x2a3 ./drivers/fsl_power.o
- .debug_str     0x0000000000000000    0x44c3e ./drivers/fsl_power.o
+ .debug_str     0x0000000000000000    0x44c2a ./drivers/fsl_power.o
  .comment       0x0000000000000000       0x80 ./drivers/fsl_power.o
  .ARM.attributes
                 0x0000000000000000       0x39 ./drivers/fsl_power.o
@@ -1199,7 +1199,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x73 ./component/lists/generic_list.o
  .debug_macro   0x0000000000000000       0x7b ./component/lists/generic_list.o
  .debug_line    0x0000000000000000      0x452 ./component/lists/generic_list.o
- .debug_str     0x0000000000000000    0x44d8e ./component/lists/generic_list.o
+ .debug_str     0x0000000000000000    0x44d7a ./component/lists/generic_list.o
  .comment       0x0000000000000000       0x80 ./component/lists/generic_list.o
  .debug_frame   0x0000000000000000      0x22c ./component/lists/generic_list.o
  .ARM.attributes
@@ -1374,25 +1374,25 @@ Discarded input sections
  .debug_macro   0x0000000000000000       0x73 ./board/pin_mux.o
  .debug_macro   0x0000000000000000       0x7b ./board/pin_mux.o
  .debug_macro   0x0000000000000000       0x34 ./board/pin_mux.o
- .text          0x0000000000000000        0x0 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
- .data          0x0000000000000000        0x0 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
- .bss           0x0000000000000000        0x0 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .text          0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .data          0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .bss           0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.DeepSleepReloc
-                0x0000000000000000       0x88 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x88 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_EnterSleep
-                0x0000000000000000       0x1c /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x1c /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_EnterDeepSleep
-                0x0000000000000000       0x2c /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x2c /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_EnterDeepPowerDown
-                0x0000000000000000       0x2c /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x2c /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_EnterPowerMode
-                0x0000000000000000       0x20 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x20 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_SetLowPowerVoltageForFreq
-                0x0000000000000000       0x3c /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000       0x3c /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text.POWER_GetLibVersion
-                0x0000000000000000        0x6 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000        0x6 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .bss.relocMem.7060
-                0x0000000000000000      0x400 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000000      0x400 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .text          0x0000000000000000        0x0 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
  .data          0x0000000000000000        0x0 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
  .bss           0x0000000000000000        0x0 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
@@ -1590,7 +1590,7 @@ LOAD ./component/lists/generic_list.o
 LOAD ./board/board.o
 LOAD ./board/clock_config.o
 LOAD ./board/pin_mux.o
-LOAD /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a
+LOAD /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a
 START GROUP
 LOAD /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a
 LOAD /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_c.a
@@ -1849,7 +1849,7 @@ END GROUP
                 0x000000000000153c       0x2c ./board/pin_mux.o
                 0x000000000000153c                BOARD_InitPins
  .text.POWER_SetVoltageForFreq
-                0x0000000000001568       0x8c /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000001568       0x8c /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
                 0x0000000000001568                POWER_SetVoltageForFreq
  .text.__assertion_failed
                 0x00000000000015f4       0x4c /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr_assert.o)
@@ -2342,7 +2342,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_info    0x000000000000a7ba      0x934 ./board/board.o
  .debug_info    0x000000000000b0ee      0xc95 ./board/clock_config.o
  .debug_info    0x000000000000bd83      0xc1c ./board/pin_mux.o
- .debug_info    0x000000000000c99f     0x12d6 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_info    0x000000000000c99f     0x12d6 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
 .debug_abbrev   0x0000000000000000     0x2013
  .debug_abbrev  0x0000000000000000      0x19a ./utilities/fsl_debug_console.o
@@ -2361,7 +2361,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_abbrev  0x000000000000184b      0x14f ./board/board.o
  .debug_abbrev  0x000000000000199a      0x171 ./board/clock_config.o
  .debug_abbrev  0x0000000000001b0b      0x1e3 ./board/pin_mux.o
- .debug_abbrev  0x0000000000001cee      0x325 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_abbrev  0x0000000000001cee      0x325 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
 .debug_aranges  0x0000000000000000      0x860
  .debug_aranges
@@ -2397,7 +2397,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_aranges
                 0x00000000000007d0       0x38 ./board/pin_mux.o
  .debug_aranges
-                0x0000000000000808       0x58 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000808       0x58 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
 .debug_ranges   0x0000000000000000      0x780
  .debug_ranges  0x0000000000000000       0x40 ./utilities/fsl_debug_console.o
@@ -2416,7 +2416,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_ranges  0x00000000000006a0       0x18 ./board/board.o
  .debug_ranges  0x00000000000006b8       0x28 ./board/clock_config.o
  .debug_ranges  0x00000000000006e0       0x28 ./board/pin_mux.o
- .debug_ranges  0x0000000000000708       0x78 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_ranges  0x0000000000000708       0x78 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
 .debug_macro    0x0000000000000000     0x1761
  .debug_macro   0x0000000000000000      0x1b2 ./utilities/fsl_debug_console.o
@@ -2470,42 +2470,42 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_line    0x0000000000003928      0x371 ./board/board.o
  .debug_line    0x0000000000003c99      0x323 ./board/clock_config.o
  .debug_line    0x0000000000003fbc      0x30b ./board/pin_mux.o
- .debug_line    0x00000000000042c7      0x365 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_line    0x00000000000042c7      0x365 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
-.debug_str      0x0000000000000000    0x4c46b
- .debug_str     0x0000000000000000    0x46347 ./utilities/fsl_debug_console.o
-                                      0x46418 (size before relaxing)
- .debug_str     0x0000000000046347      0x626 ./startup/startup_lpc5411x.o
-                                       0x3432 (size before relaxing)
- .debug_str     0x000000000004696d     0x1368 ./source/led_blinky.o
-                                      0x467e2 (size before relaxing)
- .debug_str     0x0000000000047cd5       0x1f ./source/semihost_hardfault.o
-                                       0x2dec (size before relaxing)
- .debug_str     0x0000000000047cf4     0x23d1 ./drivers/fsl_clock.o
-                                      0x479a1 (size before relaxing)
- .debug_str     0x000000000004a0c5      0x587 ./drivers/fsl_flexcomm.o
-                                      0x466e2 (size before relaxing)
- .debug_str     0x000000000004a64c       0x7b ./drivers/fsl_gpio.o
-                                      0x461de (size before relaxing)
- .debug_str     0x000000000004a6c7      0x117 ./drivers/fsl_reset.o
-                                      0x4547d (size before relaxing)
- .debug_str     0x000000000004a7de      0xaae ./drivers/fsl_usart.o
-                                      0x46477 (size before relaxing)
- .debug_str     0x000000000004b28c       0xea ./device/system_LPC54114_cm4.o
-                                      0x43b23 (size before relaxing)
- .debug_str     0x000000000004b376      0x324 ./component/uart/usart_adapter.o
-                                      0x45fd1 (size before relaxing)
- .debug_str     0x000000000004b69a      0x36c ./component/serial_manager/serial_manager.o
-                                      0x45337 (size before relaxing)
- .debug_str     0x000000000004ba06       0xfc ./component/serial_manager/serial_port_uart.o
-                                      0x453e4 (size before relaxing)
- .debug_str     0x000000000004bb02       0x50 ./board/board.o
-                                      0x472f4 (size before relaxing)
- .debug_str     0x000000000004bb52       0x46 ./board/clock_config.o
-                                      0x45c4c (size before relaxing)
- .debug_str     0x000000000004bb98      0x3b6 ./board/pin_mux.o
-                                      0x459bb (size before relaxing)
- .debug_str     0x000000000004bf4e      0x51d /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+.debug_str      0x0000000000000000    0x4c457
+ .debug_str     0x0000000000000000    0x46333 ./utilities/fsl_debug_console.o
+                                      0x46404 (size before relaxing)
+ .debug_str     0x0000000000046333      0x626 ./startup/startup_lpc5411x.o
+                                       0x341e (size before relaxing)
+ .debug_str     0x0000000000046959     0x1368 ./source/led_blinky.o
+                                      0x467ce (size before relaxing)
+ .debug_str     0x0000000000047cc1       0x1f ./source/semihost_hardfault.o
+                                       0x2dd8 (size before relaxing)
+ .debug_str     0x0000000000047ce0     0x23d1 ./drivers/fsl_clock.o
+                                      0x4798d (size before relaxing)
+ .debug_str     0x000000000004a0b1      0x587 ./drivers/fsl_flexcomm.o
+                                      0x466ce (size before relaxing)
+ .debug_str     0x000000000004a638       0x7b ./drivers/fsl_gpio.o
+                                      0x461ca (size before relaxing)
+ .debug_str     0x000000000004a6b3      0x117 ./drivers/fsl_reset.o
+                                      0x45469 (size before relaxing)
+ .debug_str     0x000000000004a7ca      0xaae ./drivers/fsl_usart.o
+                                      0x46463 (size before relaxing)
+ .debug_str     0x000000000004b278       0xea ./device/system_LPC54114_cm4.o
+                                      0x43b0f (size before relaxing)
+ .debug_str     0x000000000004b362      0x324 ./component/uart/usart_adapter.o
+                                      0x45fbd (size before relaxing)
+ .debug_str     0x000000000004b686      0x36c ./component/serial_manager/serial_manager.o
+                                      0x45323 (size before relaxing)
+ .debug_str     0x000000000004b9f2       0xfc ./component/serial_manager/serial_port_uart.o
+                                      0x453d0 (size before relaxing)
+ .debug_str     0x000000000004baee       0x50 ./board/board.o
+                                      0x472e0 (size before relaxing)
+ .debug_str     0x000000000004bb3e       0x46 ./board/clock_config.o
+                                      0x45c38 (size before relaxing)
+ .debug_str     0x000000000004bb84      0x3b6 ./board/pin_mux.o
+                                      0x459a7 (size before relaxing)
+ .debug_str     0x000000000004bf3a      0x51d /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
                                         0xbcd (size before relaxing)
 
 .comment        0x0000000000000000       0xfe
@@ -2526,7 +2526,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .comment       0x000000000000007f       0x80 ./board/board.o
  .comment       0x000000000000007f       0x80 ./board/clock_config.o
  .comment       0x000000000000007f       0x80 ./board/pin_mux.o
- .comment       0x000000000000007f       0x7f /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .comment       0x000000000000007f       0x7f /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
                                          0x80 (size before relaxing)
  .comment       0x00000000000000fe       0x80 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
  .comment       0x00000000000000fe       0x80 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr_assert.o)
@@ -2587,7 +2587,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .ARM.attributes
                 0x0000000000000357       0x39 ./board/pin_mux.o
  .ARM.attributes
-                0x0000000000000390       0x39 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+                0x0000000000000390       0x39 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .ARM.attributes
                 0x00000000000003c9       0x39 /usr/local/mcuxpressoide-10.3.1_2233/ide/plugins/com.nxp.mcuxpresso.tools.linux_10.3.0.201811011841/tools/bin/../lib/gcc/arm-none-eabi/7.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m/fpv4-sp/hard/libcr_semihost_nf.a(_cr__main.o)
  .ARM.attributes
@@ -2674,7 +2674,7 @@ OUTPUT(lpcxpresso54114_led_blinky.axf elf32-littlearm)
  .debug_frame   0x0000000000001a14       0x58 ./board/board.o
  .debug_frame   0x0000000000001a6c       0x8c ./board/clock_config.o
  .debug_frame   0x0000000000001af8       0xa0 ./board/pin_mux.o
- .debug_frame   0x0000000000001b98       0xb8 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_frame   0x0000000000001b98       0xb8 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
 .debug_loc      0x0000000000000000      0x346
- .debug_loc     0x0000000000000000      0x346 /home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_loc     0x0000000000000000      0x346 /home/jimit/Zumo_robo_Motor_Driver/lpcxpresso54114_led_blinky/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
