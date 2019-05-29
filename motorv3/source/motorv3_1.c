@@ -42,9 +42,9 @@ int main(void)
 	    };
     sctimer_config_t sctimerInfo;
     sctimer_pwm_signal_param_t pwmParam;
-    uint32_t event,pin;
+    uint32_t event1,event2,pin1 ,	speed=70;
     uint32_t sctimerClock;
-
+uint8_t right;
     /* Board pin, clock, debug console init */
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
@@ -57,70 +57,63 @@ int main(void)
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN1, &led_config);
     sctimerClock = SCTIMER_CLK_FREQ;
 
-    /* Print a note to terminal */
-    PRINTF("\r\nSCTimer example to output 2 center-aligned PWM signals\r\n");
-    PRINTF("\r\nProbe the signal using an oscilloscope");
+
 
     SCTIMER_GetDefaultConfig(&sctimerInfo);
 
     /* Initialize SCTimer module */
     SCTIMER_Init(SCT0, &sctimerInfo);
-    while(1){
-    pin= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
-    if(pin == 0)
-    {
-    	  PRINTF("\r\n pin state: %x\r\n", pin);
+
+   // pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
+
+
+
+    	  //PRINTF("\r\n pin state: %x\r\n", pin);
     /* Configure first PWM with frequency 24kHZ from first output */
     pwmParam.output = DEMO_FIRST_SCTIMER_OUT;
     pwmParam.level = kSCTIMER_HighTrue;
-    pwmParam.dutyCyclePercent = 50;
-    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
+    pwmParam.dutyCyclePercent = speed;
+    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event1) == kStatus_Fail)
     {
         return -1;
-    }printf("one");
-    if(pin ==1)
-    {
-    	 pwmParam.output = DEMO_FIRST_SCTIMER_OUT;
-    	    pwmParam.level = kSCTIMER_HighTrue;
-    	    pwmParam.dutyCyclePercent = 0;
-    	    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
-    	    {
-    	        return -1;
-    	    }printf("first off");
     }
 
- if((pin==1)){
-    /* Configure second PWM with different duty cycle but same frequency as before */
     pwmParam.output = DEMO_SECOND_SCTIMER_OUT;
     pwmParam.level = kSCTIMER_HighTrue;
-    pwmParam.dutyCyclePercent = 0;
-    PRINTF("forward");
-    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
+    pwmParam.dutyCyclePercent =speed ;
+    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event2) == kStatus_Fail)
     {
-        return -1;
-    }printf("second on");
-    if(pin ==0)
-       {
-       	 pwmParam.output = DEMO_SECOND_SCTIMER_OUT;
-       	    pwmParam.level = kSCTIMER_HighTrue;
-       	    pwmParam.dutyCyclePercent = 0;
-       	    if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event) == kStatus_Fail)
-       	    {
-       	        return -1;
-       	    }
-       	    printf("second off");
-       }
-    SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
-    PRINTF("forward+\n");
+    	        return -1;
     }
+    //SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
+while(1)
+{
+	pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);//uint32_t speed=70;
+	if(pin1==0)
+	{
+		right=+1;
+		if(right==2)
+		{
+			printf("hwweee");
+			    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_SECOND_SCTIMER_OUT, speed, event2);
+			    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FIRST_SCTIMER_OUT, 1, event1);
+		}
+		if(right==3)
+		{
+			printf("hwweee");
+						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_SECOND_SCTIMER_OUT, 1, event2);
+						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FIRST_SCTIMER_OUT, speed, event1);
+		}
+		else{
+			right=0;
+		}
+	}
+
+	  SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 
 
-    /* Start the timer */
-    SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
-
-    while (1)
-    {
-    }}
+    }
 }
-}
+
+
 
