@@ -42,8 +42,8 @@ int main(void)
 	    };
     sctimer_config_t sctimerInfo;
     sctimer_pwm_signal_param_t pwmParam;
-    uint32_t stateNumber;
-    uint32_t event1,event2,event3,eventin,pin;
+    uint32_t stateNumber,stateNumber2;
+    uint32_t event1,event2,event3,eventin,event4,eventin2;
     uint32_t sctimerClock;
 
     /* Board pin, clock, debug console init */
@@ -56,7 +56,7 @@ int main(void)
     BOARD_InitDebugConsole();
     GPIO_PortInit(GPIO, GPIO_PORT);
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN1, &led_config);
-    pin = GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
+
     sctimerClock = SCTIMER_CLK_FREQ;
 
 
@@ -75,7 +75,7 @@ int main(void)
        }
 
        PRINTF("\r\n pin state: %x\r\n", stateNumber);
-    if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, pin, kSCTIMER_Counter_L,
+    if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_2, kSCTIMER_Counter_L,
                                           &eventin) == kStatus_Fail)
        {
            return -1;
@@ -89,13 +89,51 @@ int main(void)
        {
            return -1;
        }
-       if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, pin, kSCTIMER_Counter_L,
+       if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_2, kSCTIMER_Counter_L,
                                                  &eventin) == kStatus_Fail)
               {
                   return -1;
               }
        PRINTF("\r\n pin state: %x\r\n", stateNumber);
        SCTIMER_SetupNextStateAction(SCT0, stateNumber, eventin);
+
+
+
+
+
+
+
+       stateNumber2 = SCTIMER_GetCurrentState(SCT0);
+           pwmParam.output = DEMO_THIRD_SCTIMER_OUT;
+           pwmParam.level = kSCTIMER_HighTrue;
+           pwmParam.dutyCyclePercent = 50;
+              if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 24000U, sctimerClock, &event3) == kStatus_Fail)
+              {
+                  return -1;
+              }
+
+              PRINTF("\r\n pin state: %x\r\n", stateNumber2);
+           if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_3, kSCTIMER_Counter_L,
+                                                 &eventin2) == kStatus_Fail)
+              {
+                  return -1;
+              }
+           SCTIMER_SetupNextStateAction(SCT0, stateNumber2 + 1, eventin2);
+           SCTIMER_IncreaseState(SCT0);
+           pwmParam.output = DEMO_FOURTH_SCTIMER_OUT;
+              pwmParam.dutyCyclePercent = 50;
+              if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm, 24000U, sctimerClock, &event4) ==
+                  kStatus_Fail)
+              {
+                  return -1;
+              }
+              if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_3, kSCTIMER_Counter_L,
+                                                        &eventin2) == kStatus_Fail)
+                     {
+                         return -1;
+                     }
+              PRINTF("\r\n pin state: %x\r\n", stateNumber2);
+              SCTIMER_SetupNextStateAction(SCT0, stateNumber2, eventin2);
     SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 
 

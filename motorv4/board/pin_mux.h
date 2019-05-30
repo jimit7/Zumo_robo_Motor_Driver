@@ -129,6 +129,18 @@ void BOARD_InitBootPins(void);
 #define BOARD_INITPINS_SPI_FLASH_MOSI_PIN 20U   /*!<@brief 0U pin index: 20 */
                                                 /* @} */
 
+/*! @name PIO0_26 (number 4), J1[3]/JS5[1]/U10[5]/P0_26-FC4_SDAX
+  @{ */
+#define BOARD_INITPINS_FC4_SDAX_PORT 0U /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_FC4_SDAX_PIN 26U /*!<@brief 0U pin index: 26 */
+                                        /* @} */
+
+/*! @name PIO0_25 (number 3), J1[1]/JS4[1]/U10[7]/P0_25-FC4_SCLX
+  @{ */
+#define BOARD_INITPINS_FC4_SCLX_PORT 0U /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_FC4_SCLX_PIN 25U /*!<@brief 0U pin index: 25 */
+                                        /* @} */
+
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
  *

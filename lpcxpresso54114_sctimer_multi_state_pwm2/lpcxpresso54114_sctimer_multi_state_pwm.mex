@@ -101,6 +101,7 @@
                         <pin_feature name="mode" value="no_init"/>
                      </pin_features>
                   </pin>
+                  <pin peripheral="SCT0" signal="IN, 0" pin_num="1" pin_signal="PIO0_23/FC1_RTS_SCL_SSEL1/CTIMER0_CAP0/UTICK_CAP1"/>
                </pins>
             </function>
          </functions_list>

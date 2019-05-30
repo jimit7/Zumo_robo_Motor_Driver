@@ -6,7 +6,7 @@
  * Generated linker script file for LPC54114J256
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * MCUXpresso IDE v10.3.1 [Build 2233] [2019-02-20] on 29-May-2019 2:04:32 PM
+ * MCUXpresso IDE v10.3.1 [Build 2233] [2019-02-20] on 30-May-2019 9:24:01 AM
  */
 
 INCLUDE "lpcxpresso54114_sctimer_simple_pwm_Debug_library.ld"
