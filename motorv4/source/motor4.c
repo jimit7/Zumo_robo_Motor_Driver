@@ -11,10 +11,10 @@
  ******************************************************************************/
 
 #define SCTIMER_CLK_FREQ CLOCK_GetFreq(kCLOCK_BusClk)
-#define DEMO_FIRST_SCTIMER_OUT kSCTIMER_Out_2
-#define DEMO_SECOND_SCTIMER_OUT kSCTIMER_Out_4
-#define DEMO_THIRD_SCTIMER_OUT	kSCTIMER_Out_5
-#define DEMO_FOURTH_SCTIMER_OUT	kSCTIMER_Out_7
+#define DEMO_FIRST_SCTIMER_OUT kSCTIMER_Out_7
+#define DEMO_SECOND_SCTIMER_OUT kSCTIMER_Out_5
+#define DEMO_THIRD_SCTIMER_OUT	kSCTIMER_Out_2
+#define DEMO_FOURTH_SCTIMER_OUT	kSCTIMER_Out_4
 #define GPIO_PORT 0U
 #define Left_PIN1 18U
 #define Left_PIN2 19U
@@ -74,7 +74,7 @@ int main(void)
            return -1;
        }
 
-       PRINTF("\r\n pin state: %x\r\n", stateNumber);
+       PRINTF("\r\n pin 1state: %x\r\n", stateNumber);
     if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_2, kSCTIMER_Counter_L,
                                           &eventin) == kStatus_Fail)
        {
@@ -94,7 +94,7 @@ int main(void)
               {
                   return -1;
               }
-       PRINTF("\r\n pin state: %x\r\n", stateNumber);
+       PRINTF("\r\n pin 2state: %x\r\n", stateNumber);
        SCTIMER_SetupNextStateAction(SCT0, stateNumber, eventin);
 
 
@@ -112,8 +112,8 @@ int main(void)
                   return -1;
               }
 
-              PRINTF("\r\n pin state: %x\r\n", stateNumber2);
-           if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_3, kSCTIMER_Counter_L,
+              PRINTF("\r\n pin 4state: %x\r\n", stateNumber2);
+           if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputRiseEvent, 0, kSCTIMER_Input_1, kSCTIMER_Counter_L,
                                                  &eventin2) == kStatus_Fail)
               {
                   return -1;
@@ -127,12 +127,12 @@ int main(void)
               {
                   return -1;
               }
-              if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputFallEvent, 1, kSCTIMER_Input_3, kSCTIMER_Counter_L,
+              if (SCTIMER_CreateAndScheduleEvent(SCT0, kSCTIMER_InputRiseEvent, 0, kSCTIMER_Input_1, kSCTIMER_Counter_L,
                                                         &eventin2) == kStatus_Fail)
                      {
                          return -1;
                      }
-              PRINTF("\r\n pin state: %x\r\n", stateNumber2);
+              PRINTF("\r\n pin 3state: %x\r\n", stateNumber2);
               SCTIMER_SetupNextStateAction(SCT0, stateNumber2, eventin2);
     SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 
