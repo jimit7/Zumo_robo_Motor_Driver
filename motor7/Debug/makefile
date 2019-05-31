@@ -31,25 +31,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: motorv3.axf
+all: motor7.axf
 
 # Tool invocations
-motorv3.axf: $(OBJS) $(USER_OBJS)
+motor7.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Zumo_robo_Motor_Driver/motorv3/libs" -Xlinker -Map="motorv3.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso54114_sctimer_simple_pwm_Debug.ld -o "motorv3.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Zumo_robo_Motor_Driver/motor7/libs" -Xlinker -Map="motor7.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T lpcxpresso54114_sctimer_simple_pwm_Debug.ld -o "motor7.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) motorv3.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) motor7.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "motorv3.axf"; # arm-none-eabi-objcopy -v -O binary "motorv3.axf" "motorv3.bin" ; # checksum -p LPC54114J256 -d "motorv3.bin";
+	-arm-none-eabi-size "motor7.axf"; # arm-none-eabi-objcopy -v -O binary "motor7.axf" "motor7.bin" ; # checksum -p LPC54114J256 -d "motor7.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

@@ -64,7 +64,7 @@ uint8_t right,forward;
     /* Initialize SCTimer module */
     SCTIMER_Init(SCT0, &sctimerInfo);
 
-   // pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
+   pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
 
 
 
@@ -74,7 +74,7 @@ uint8_t right,forward;
 
        /* Schedule events in current state; State 0 */
        /* Schedule events for generating a 24KHz PWM with 10% duty cycle from first Out in the current state */
-       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm, 24000U, sctimerClock, &event1) ==
+       if (SCTIMER_SetupPwm(SCT0, &pwmParam1, kSCTIMER_EdgeAlignedPwm, 24000U, sctimerClock, &event1) ==
            kStatus_Fail)
        {
            return -1;
@@ -101,26 +101,25 @@ uint8_t right,forward;
 
 
          while(1){
-        	  if(pin == 0)
+        	  if(pin1== 0)
 
-
-        	  {
+{
         		right = right +1;
-        		switch(right):
-        						case 1:
+        		switch (right)
+        		{        		case 1:
         							    forward = 0;
         							    break;
         						case 2:
         							    forward = 1;
         							    break;
 
-        						case 3 :
+        						case 3:
         							    forward = 2;
         							    break;
 
         						default :
         							    right = 0;
-        							    break;
+        		}
         			if (right >=4 )
         			{
         				right =0;
@@ -131,12 +130,25 @@ uint8_t right,forward;
 
         	if (forward == 0 )
         	{
-        		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, 1, eventNumberOutput);
-        		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT, updatedDutycycle, eventNumberOutput);
-
-
+        		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, 1, event1);
+        		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT, 1, event2);
         	}
 
 
+        	if (forward == 1 )
+        	{
+        		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, speed, event1);
+        	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT, 1, event2);
+        	}
 
+        	if (forward == 2 )
+
+        	{
+        	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, 1, event1);
+        	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT,speed, event2);
+        	}
+
+
+         }
+}
 

@@ -4,15 +4,15 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
-../source/motorv3_1.c \
+../source/motor7.c \
 ../source/semihost_hardfault.c 
 
 OBJS += \
-./source/motorv3_1.o \
+./source/motor7.o \
 ./source/semihost_hardfault.o 
 
 C_DEPS += \
-./source/motorv3_1.d \
+./source/motor7.d \
 ./source/semihost_hardfault.d 
 
 
