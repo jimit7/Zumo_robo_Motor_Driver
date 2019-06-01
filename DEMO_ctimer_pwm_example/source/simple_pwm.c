@@ -67,7 +67,10 @@ status_t CTIMER_GetPwmPeriodValue(uint32_t pwmFreqHz, uint8_t dutyCyclePercent, 
 int main(void)
 {
     ctimer_config_t config;
-    uint32_t srcClock_Hz;
+    gpio_pin_config_t GPIO_config = {
+    	        kGPIO_DigitalInput,
+    	    };
+    uint32_t srcClock_Hz,speed = 60;
     uint32_t timerClock;
     
     /* Init hardware*/
@@ -94,7 +97,11 @@ int main(void)
 
     CTIMER_Init(CTIMER, &config);
     CTIMER_Init(CTIMER_1, &config);
-
+    GPIO_PortInit(GPIO, GPIO_PORT);
+    GPIO_PinInit(GPIO, GPIO_PORT, Left_Forward, &GPIO_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, Left_Reverse, &GPIO_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, Right_Forward, &GPIO_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, Right_Reverse, &GPIO_config);
     /* Get the PWM period match value and pulse width match value of 20Khz PWM signal with 20% dutycycle */
     CTIMER_GetPwmPeriodValue(20000, 20, timerClock);
     CTIMER_SetupPwmPeriod(CTIMER, CTIMER_MAT_OUT, g_pwmPeriod, g_pulsePeriod, false);
@@ -104,6 +111,15 @@ int main(void)
     CTIMER_SetupPwmPeriod(CTIMER_1, CTIMER_MAT1_OUT, g_pwmPeriod, g_pulsePeriod, false);
     CTIMER_GetPwmPeriodValue(20000, 45, timerClock);
     CTIMER_SetupPwmPeriod(CTIMER_1, CTIMER_MAT1_OUT1, g_pwmPeriod, g_pulsePeriod, false);
+    while(GPIO_PinRead(GPIO, GPIO_PORT, Left_Forward)==0){
+    CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT,0);
+    CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT1, speed);
+    }
+    while(GPIO_PinRead(GPIO, GPIO_PORT, Left_Forward)==1){
+        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT,speed);
+        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT1, 0);
+        }
+
     CTIMER_StartTimer(CTIMER);
     CTIMER_StartTimer(CTIMER_1);
     while (1)
