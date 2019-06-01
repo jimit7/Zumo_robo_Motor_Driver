@@ -18,8 +18,8 @@
 #define GPIO_PORT 0U
 #define Left_PIN1 18U
 #define Left_PIN2 19U
-#define Right_PIN1 25U
-#define Right_PIN2 26U
+#define Right_PIN1 21U
+#define Right_PIN2 20U
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/

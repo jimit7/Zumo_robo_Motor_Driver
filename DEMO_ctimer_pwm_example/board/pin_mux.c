@@ -50,10 +50,10 @@ BOARD_InitPins:
   - {pin_num: '12', peripheral: CTIMER0, signal: 'MATCH, 2', pin_signal: PIO0_30/FC1_TXD_SCL_MISO/SCT0_OUT3/CTIMER0_MAT2/CTIMER0_CAP2/ADC0_1}
   - {pin_num: '51', peripheral: CTIMER1, signal: 'MATCH, 0', pin_signal: PIO1_12/FC5_RXD_SDA_MOSI/CTIMER1_MAT0/FC7_SCK/UTICK_CAP2}
   - {pin_num: '54', peripheral: CTIMER1, signal: 'MATCH, 1', pin_signal: PIO1_13/FC5_TXD_SCL_MISO/CTIMER1_MAT1/FC7_RXD_SDA_MOSI_DATA}
-  - {pin_num: '45', peripheral: GPIO, signal: 'PIO0, 10', pin_signal: PIO0_10/FC2_SCK/SCT0_OUT3/CTIMER3_MAT0, direction: INPUT, mode: pullUp}
   - {pin_num: '49', peripheral: GPIO, signal: 'PIO0, 14', pin_signal: PIO0_14/FC3_CTS_SDA_SSEL0/SCT0_OUT5/CTIMER2_MAT1/FC1_SCK, direction: INPUT}
   - {pin_num: '50', peripheral: GPIO, signal: 'PIO0, 15', pin_signal: PIO0_15/FC3_RTS_SCL_SSEL1/SWO/CTIMER2_MAT2/FC4_SCK, direction: INPUT}
   - {pin_num: '52', peripheral: GPIO, signal: 'PIO0, 16', pin_signal: PIO0_16/FC3_SSEL2/FC6_CTS_SDA_SSEL0/CTIMER3_MAT1/SWCLK, direction: INPUT}
+  - {pin_num: '58', peripheral: GPIO, signal: 'PIO0, 18', pin_signal: PIO0_18/FC5_TXD_SCL_MISO/SCT0_OUT0/CTIMER0_MAT0, direction: INPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
  */
 /* clang-format on */
@@ -71,13 +71,6 @@ void BOARD_InitPins(void)
     CLOCK_EnableClock(kCLOCK_Iocon);
     /* Enables the clock for the GPIO0 module */
     CLOCK_EnableClock(kCLOCK_Gpio0);
-
-    gpio_pin_config_t gpio_config = {
-        .pinDirection = kGPIO_DigitalInput,
-        .outputLogic = 0U
-    };
-    /* Initialize GPIO functionality on pin PIO0_10 (pin 45)  */
-    GPIO_PinInit(BOARD_INITPINS_gpio_GPIO, BOARD_INITPINS_gpio_PORT, BOARD_INITPINS_gpio_PIN, &gpio_config);
 
     gpio_pin_config_t BRIDGE_T_SSEL_config = {
         .pinDirection = kGPIO_DigitalInput,
@@ -99,6 +92,13 @@ void BOARD_InitPins(void)
     };
     /* Initialize GPIO functionality on pin PIO0_16 (pin 52)  */
     GPIO_PinInit(BOARD_INITPINS_DEBUG_SWD_SWDCLK_GPIO, BOARD_INITPINS_DEBUG_SWD_SWDCLK_PORT, BOARD_INITPINS_DEBUG_SWD_SWDCLK_PIN, &DEBUG_SWD_SWDCLK_config);
+
+    gpio_pin_config_t SPI_FLASH_MISO_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PIO0_18 (pin 58)  */
+    GPIO_PinInit(BOARD_INITPINS_SPI_FLASH_MISO_GPIO, BOARD_INITPINS_SPI_FLASH_MISO_PORT, BOARD_INITPINS_SPI_FLASH_MISO_PIN, &SPI_FLASH_MISO_config);
 
     const uint32_t port0_pin0_config = (/* Pin is configured as FC0_RXD_SDA_MOSI */
                                         IOCON_PIO_FUNC1 |
@@ -133,23 +133,6 @@ void BOARD_InitPins(void)
                                         IOCON_PIO_OPENDRAIN_DI);
     /* PORT0 PIN1 (coords: 32) is configured as FC0_TXD_SCL_MISO */
     IOCON_PinMuxSet(IOCON, 0U, 1U, port0_pin1_config);
-
-    IOCON->PIO[0][10] = ((IOCON->PIO[0][10] &
-                          /* Mask bits to zero which are setting */
-                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_MODE_MASK | IOCON_PIO_DIGIMODE_MASK)))
-
-                         /* Selects pin function.
-                          * : PORT010 (pin 45) is configured as PIO0_10. */
-                         | IOCON_PIO_FUNC(PIO010_FUNC_ALT0)
-
-                         /* Selects function mode (on-chip pull-up/pull-down resistor control).
-                          * : Pull-up.
-                          * Pull-up resistor enabled. */
-                         | IOCON_PIO_MODE(PIO010_MODE_PULL_UP)
-
-                         /* Select Analog/Digital mode.
-                          * : Digital mode. */
-                         | IOCON_PIO_DIGIMODE(PIO010_DIGIMODE_DIGITAL));
 
     IOCON->PIO[0][14] = ((IOCON->PIO[0][14] &
                           /* Mask bits to zero which are setting */
@@ -186,6 +169,18 @@ void BOARD_InitPins(void)
                          /* Select Analog/Digital mode.
                           * : Digital mode. */
                          | IOCON_PIO_DIGIMODE(PIO016_DIGIMODE_DIGITAL));
+
+    IOCON->PIO[0][18] = ((IOCON->PIO[0][18] &
+                          /* Mask bits to zero which are setting */
+                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_DIGIMODE_MASK)))
+
+                         /* Selects pin function.
+                          * : PORT018 (pin 58) is configured as PIO0_18. */
+                         | IOCON_PIO_FUNC(PIO018_FUNC_ALT0)
+
+                         /* Select Analog/Digital mode.
+                          * : Digital mode. */
+                         | IOCON_PIO_DIGIMODE(PIO018_DIGIMODE_DIGITAL));
 
     const uint32_t port0_pin29_config = (/* Pin is configured as CTIMER0_MAT1 */
                                          IOCON_PIO_FUNC7 |
