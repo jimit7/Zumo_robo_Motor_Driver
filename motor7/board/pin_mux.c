@@ -50,7 +50,7 @@ BOARD_InitPins:
   - {pin_num: '57', peripheral: SCT0, signal: 'OUT, 7', pin_signal: PIO1_14/FC2_RXD_SDA_MOSI/SCT0_OUT7/FC7_TXD_SCL_MISO_WS}
   - {pin_num: '62', peripheral: SCT0, signal: 'OUT, 5', pin_signal: PIO1_15/PDM0_CLK/SCT0_OUT5/CTIMER1_CAP3/FC7_CTS_SDA_SSEL0}
   - {pin_num: '58', peripheral: GPIO, signal: 'PIO0, 18', pin_signal: PIO0_18/FC5_TXD_SCL_MISO/SCT0_OUT0/CTIMER0_MAT0, direction: INPUT, mode: pullUp}
-  - {pin_num: '59', peripheral: GPIO, signal: 'PIO0, 19', pin_signal: PIO0_19/FC5_SCK/SCT0_OUT1/CTIMER0_MAT1}
+  - {pin_num: '59', peripheral: GPIO, signal: 'PIO0, 19', pin_signal: PIO0_19/FC5_SCK/SCT0_OUT1/CTIMER0_MAT1, direction: INPUT}
   - {pin_num: '61', peripheral: GPIO, signal: 'PIO0, 21', pin_signal: PIO0_21/CLKOUT/FC0_TXD_SCL_MISO/CTIMER3_MAT0}
   - {pin_num: '60', peripheral: GPIO, signal: 'PIO0, 20', pin_signal: PIO0_20/FC5_RXD_SDA_MOSI/FC0_SCK/CTIMER3_CAP0}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
@@ -77,6 +77,13 @@ void BOARD_InitPins(void)
     };
     /* Initialize GPIO functionality on pin PIO0_18 (pin 58)  */
     GPIO_PinInit(BOARD_INITPINS_SPI_FLASH_MISO_GPIO, BOARD_INITPINS_SPI_FLASH_MISO_PORT, BOARD_INITPINS_SPI_FLASH_MISO_PIN, &SPI_FLASH_MISO_config);
+
+    gpio_pin_config_t SPI_FLASH_SCK_config = {
+        .pinDirection = kGPIO_DigitalInput,
+        .outputLogic = 0U
+    };
+    /* Initialize GPIO functionality on pin PIO0_19 (pin 59)  */
+    GPIO_PinInit(BOARD_INITPINS_SPI_FLASH_SCK_GPIO, BOARD_INITPINS_SPI_FLASH_SCK_PORT, BOARD_INITPINS_SPI_FLASH_SCK_PIN, &SPI_FLASH_SCK_config);
 
     const uint32_t port0_pin0_config = (/* Pin is configured as FC0_RXD_SDA_MOSI */
                                         IOCON_PIO_FUNC1 |

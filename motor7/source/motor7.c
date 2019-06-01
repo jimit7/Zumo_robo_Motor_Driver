@@ -37,7 +37,7 @@
  */
 int main(void)
 {
- 	gpio_pin_config_t led_config = {
+   	gpio_pin_config_t led_config = {
 	        kGPIO_DigitalInput,
 	    };
     sctimer_config_t sctimerInfo;
@@ -70,7 +70,7 @@ uint8_t right,forward;
 
     pwmParam1.output = DEMO_FIRST_SCTIMER_OUT;
     pwmParam1.level = kSCTIMER_HighTrue;
-    pwmParam1.dutyCyclePercent = 1;
+    pwmParam1.dutyCyclePercent = 10;
 
        /* Schedule events in current state; State 0 */
        /* Schedule events for generating a 24KHz PWM with 10% duty cycle from first Out in the current state */
@@ -88,7 +88,7 @@ uint8_t right,forward;
 
     pwmParam2.output = DEMO_SECOND_SCTIMER_OUT;
     pwmParam2.level = kSCTIMER_HighTrue;
-    pwmParam2.dutyCyclePercent = 1;
+    pwmParam2.dutyCyclePercent = 10;
 
           /* Schedule events in current state; State 0 */
           /* Schedule events for generating a 24KHz PWM with 10% duty cycle from first Out in the current state */
@@ -105,47 +105,53 @@ uint8_t right,forward;
 
 {
         		right = right +1;
-        		switch (right)
-        		{        		case 1:
-        							    forward = 0;
-        							    break;
-        						case 2:
+        		                     if (right == 1){
+
         							    forward = 1;
-        							    break;
+        		                     }
 
-        						case 3:
+        		                     if (right == 2){
+
         							    forward = 2;
-        							    break;
+        		                     }
 
-        						default :
-        							    right = 0;
+
+        		                     if (right == 3){
+
+        							    forward = 3;
+        		                     }
+
+        						     if (right>=4)
+        						     {
+        							 right = 0;
+        							 }
         		}
-        			if (right >=4 )
-        			{
-        				right =0;
-        			}
-        	  }
 
 
 
-        	if (forward == 0 )
+
+
+        	if (forward ==1 )
         	{
         		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, 1, event1);
         		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT, 1, event2);
+        		 printf("a\n");
         	}
 
 
-        	if (forward == 1 )
+        	if (forward ==2 )
         	{
         		 SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, speed, event1);
         	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT, 1, event2);
+        	     printf("b\n");
         	}
 
-        	if (forward == 2 )
+        	if (forward == 3 )
 
         	{
         	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_FIRST_SCTIMER_OUT, 1, event1);
         	     SCTIMER_UpdatePwmDutycycle(SCT0, DEMO_SECOND_SCTIMER_OUT,speed, event2);
+        	     printf("c\n");
         	}
 
 

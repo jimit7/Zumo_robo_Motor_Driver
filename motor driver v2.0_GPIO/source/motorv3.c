@@ -103,15 +103,15 @@ int main(void)
     pwmParam.level = kSCTIMER_HighTrue;
     pwmParam.dutyCyclePercent = speed;
     pin2= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2);
-    if((pin2 == 0))
-    {
+   // if((pin2 == 0))
+   // {
     if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 20000U, sctimerClock, &event) == kStatus_Fail)
     {
         return -1;
     }
-    }
+    //}
     /* Configure second PWM with different duty cycle but same frequency as before */
-    else{
+    //else{
     pwmParam.output = DEMO_SECOND_SCTIMER_OUT;
     pwmParam.level = kSCTIMER_LowTrue;
     pwmParam.dutyCyclePercent = 50;
@@ -119,7 +119,7 @@ int main(void)
     {
         return -1;
     }
-    }
+    //}
 
 
 

@@ -41,8 +41,8 @@ void BOARD_InitBootPins(void)
 BOARD_InitPins:
 - options: {callFromInitBoot: 'true', coreID: cm4, enableClock: 'true'}
 - pin_list:
-  - {pin_num: '58', peripheral: GPIO, signal: 'PIO0, 18', pin_signal: PIO0_18/FC5_TXD_SCL_MISO/SCT0_OUT0/CTIMER0_MAT0, direction: INPUT}
-  - {pin_num: '59', peripheral: GPIO, signal: 'PIO0, 19', pin_signal: PIO0_19/FC5_SCK/SCT0_OUT1/CTIMER0_MAT1, direction: INPUT}
+  - {pin_num: '58', peripheral: GPIO, signal: 'PIO0, 18', pin_signal: PIO0_18/FC5_TXD_SCL_MISO/SCT0_OUT0/CTIMER0_MAT0, direction: INPUT, mode: pullUp}
+  - {pin_num: '59', peripheral: GPIO, signal: 'PIO0, 19', pin_signal: PIO0_19/FC5_SCK/SCT0_OUT1/CTIMER0_MAT1, direction: INPUT, mode: pullUp}
   - {pin_num: '60', peripheral: GPIO, signal: 'PIO0, 20', pin_signal: PIO0_20/FC5_RXD_SDA_MOSI/FC0_SCK/CTIMER3_CAP0, direction: INPUT}
   - {pin_num: '61', peripheral: GPIO, signal: 'PIO0, 21', pin_signal: PIO0_21/CLKOUT/FC0_TXD_SCL_MISO/CTIMER3_MAT0, direction: INPUT}
  * BE CAREFUL MODIFYING THIS COMMENT - IT IS YAML SETTINGS FOR TOOLS ***********
@@ -93,11 +93,16 @@ void BOARD_InitPins(void)
 
     IOCON->PIO[0][18] = ((IOCON->PIO[0][18] &
                           /* Mask bits to zero which are setting */
-                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_DIGIMODE_MASK)))
+                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_MODE_MASK | IOCON_PIO_DIGIMODE_MASK)))
 
                          /* Selects pin function.
                           * : PORT018 (pin 58) is configured as PIO0_18. */
                          | IOCON_PIO_FUNC(PIO018_FUNC_ALT0)
+
+                         /* Selects function mode (on-chip pull-up/pull-down resistor control).
+                          * : Pull-up.
+                          * Pull-up resistor enabled. */
+                         | IOCON_PIO_MODE(PIO018_MODE_PULL_UP)
 
                          /* Select Analog/Digital mode.
                           * : Digital mode. */
@@ -105,11 +110,16 @@ void BOARD_InitPins(void)
 
     IOCON->PIO[0][19] = ((IOCON->PIO[0][19] &
                           /* Mask bits to zero which are setting */
-                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_DIGIMODE_MASK)))
+                          (~(IOCON_PIO_FUNC_MASK | IOCON_PIO_MODE_MASK | IOCON_PIO_DIGIMODE_MASK)))
 
                          /* Selects pin function.
                           * : PORT019 (pin 59) is configured as PIO0_19. */
                          | IOCON_PIO_FUNC(PIO019_FUNC_ALT0)
+
+                         /* Selects function mode (on-chip pull-up/pull-down resistor control).
+                          * : Pull-up.
+                          * Pull-up resistor enabled. */
+                         | IOCON_PIO_MODE(PIO019_MODE_PULL_UP)
 
                          /* Select Analog/Digital mode.
                           * : Digital mode. */

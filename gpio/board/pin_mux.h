@@ -25,14 +25,36 @@ extern "C" {
  */
 void BOARD_InitBootPins(void);
 
-#define PIO018_DIGIMODE_DIGITAL 0x01u /*!<@brief Select Analog/Digital mode.: Digital mode. */
-#define PIO018_FUNC_ALT0 0x00u        /*!<@brief Selects pin function.: Alternative connection 0. */
-#define PIO019_DIGIMODE_DIGITAL 0x01u /*!<@brief Select Analog/Digital mode.: Digital mode. */
-#define PIO019_FUNC_ALT0 0x00u        /*!<@brief Selects pin function.: Alternative connection 0. */
-#define PIO020_DIGIMODE_DIGITAL 0x01u /*!<@brief Select Analog/Digital mode.: Digital mode. */
-#define PIO020_FUNC_ALT0 0x00u        /*!<@brief Selects pin function.: Alternative connection 0. */
-#define PIO021_DIGIMODE_DIGITAL 0x01u /*!<@brief Select Analog/Digital mode.: Digital mode. */
-#define PIO021_FUNC_ALT0 0x00u        /*!<@brief Selects pin function.: Alternative connection 0. */
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO018_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO018_FUNC_ALT0 0x00u
+/*!
+ * @brief Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor enabled. */
+#define PIO018_MODE_PULL_UP 0x02u
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO019_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO019_FUNC_ALT0 0x00u
+/*!
+ * @brief Selects function mode (on-chip pull-up/pull-down resistor control).: Pull-up. Pull-up resistor enabled. */
+#define PIO019_MODE_PULL_UP 0x02u
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO020_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO020_FUNC_ALT0 0x00u
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO021_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO021_FUNC_ALT0 0x00u
 
 /*! @name PIO0_18 (number 58), J1[11]/U5[2]/P0_18-FC5_TXD_SCL_MISO
   @{ */

@@ -89,6 +89,7 @@ int main(void)
     		count=0;
     		speed =5;
     	}
+    }
 
 
     /* Print a note to terminal */
@@ -131,4 +132,4 @@ int main(void)
 
   //  }//
 //}//
-    }}
+    }

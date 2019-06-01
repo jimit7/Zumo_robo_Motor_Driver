@@ -62,10 +62,10 @@ void delay(void)
 int main(void)
 {
    // uint32_t port_state = 0;
-    uint32_t pin1=1,pin2=1,pin3=1,pin4=1;
+     uint32_t pin1,count,speed;
     /* Define the init structure for the output LED pin*/
     gpio_pin_config_t led_config = {
-        kGPIO_DigitalInput,
+        kGPIO_DigitalInput,1
     };
 
 
@@ -94,38 +94,44 @@ int main(void)
     GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN1, &led_config);
     GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN2, &led_config);
     pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);
-    pin2= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2);
-    pin3= GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN1);
-    pin4= GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN2);
+  //  pin2= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2);
+    //pin3= GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN1);
+    //pin4= GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN2);
     PRINTF("\r\n pin state: %x\r\n", pin1);
-    PRINTF("\r\n pin state: %x\r\n", pin2);
-    PRINTF("\r\n pin state: %x\r\n", pin3);
-    PRINTF("\r\n pin state: %x\r\n", pin4);
+    //PRINTF("\r\n pin state: %x\r\n", pin2);
+    //PRINTF("\r\n pin state: %x\r\n", pin3);
+    //PRINTF("\r\n pin state: %x\r\n", pin4);
        /* Set systick reload value to generate 1ms interrupt */
 
 
 
-
-
-    if(pin1 == 0)
-    {
-    	 PRINTF("left_forward");
-    }
-
-        if((pin2==0))
-        {
-        	 PRINTF("left_reverse");
-        }
-
-            if((pin3 ==0))
-            {
-            	 PRINTF("right_forward");
-            }
-
-                if((pin4 ==0))
-                {
-                	 PRINTF("right_reverse");
-                }
+while(1){
+	//while(pin1==0)
+	if(pin1 == 0) 			{
+	    	count+=1;
+	    	if(count==1)
+	    	{
+	    		speed = 25;
+	    	}
+	    	else if(count==2)
+	    	{
+	    	   speed = 50;
+	    	 }
+	    	else if(count==3)
+	    	{
+	    	    		speed = 75;
+	    	 }
+	    	else if(count==4)
+	    	{
+	    	    		speed = 98;
+	    	}
+	    	else
+	    	{
+	    		count=0;
+	    		speed =5;
+	    	}
+	    	PRINTF("\r\n pin state: %x\r\n",speed);
+	    	}
     //GPIO_PinWrite(GPIO, APP_BOARD_TEST_LED_PORT, APP_BOARD_TEST_LED_PIN, 1);
 
     /* Port masking */
@@ -146,5 +152,7 @@ int main(void)
        // }
        // delay();
     //}
+
+}
 }
 
