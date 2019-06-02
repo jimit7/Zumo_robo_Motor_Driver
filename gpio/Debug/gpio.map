@@ -1479,7 +1479,7 @@ Discarded input sections
  .debug_macro   0x0000000000000000      0x1f1 ./board/pin_mux.o
  .debug_macro   0x0000000000000000       0x73 ./board/pin_mux.o
  .debug_macro   0x0000000000000000       0x7b ./board/pin_mux.o
- .debug_macro   0x0000000000000000       0x82 ./board/pin_mux.o
+ .debug_macro   0x0000000000000000       0x8e ./board/pin_mux.o
  .text          0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .data          0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
  .bss           0x0000000000000000        0x0 /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
@@ -2517,7 +2517,7 @@ OUTPUT(gpio.axf elf32-littlearm)
  .debug_ranges  0x00000000000006d8       0x20 ./board/pin_mux.o
  .debug_ranges  0x00000000000006f8       0x78 /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
-.debug_macro    0x0000000000000000     0x1736
+.debug_macro    0x0000000000000000     0x1742
  .debug_macro   0x0000000000000000      0x1b2 ./utilities/fsl_debug_console.o
  .debug_macro   0x00000000000001b2       0x16 ./utilities/fsl_debug_console.o
  .debug_macro   0x00000000000001c8       0x10 ./utilities/fsl_debug_console.o
@@ -2529,27 +2529,27 @@ OUTPUT(gpio.axf elf32-littlearm)
  .debug_macro   0x00000000000002d6      0x1b9 ./source/gpio.o
  .debug_macro   0x000000000000048f       0x22 ./source/gpio.o
  .debug_macro   0x00000000000004b1      0x1a6 ./source/gpio.o
- .debug_macro   0x0000000000000657       0x82 ./source/gpio.o
- .debug_macro   0x00000000000006d9       0x11 ./source/semihost_hardfault.o
- .debug_macro   0x00000000000006ea      0x1e5 ./drivers/fsl_clock.o
- .debug_macro   0x00000000000008cf       0x22 ./drivers/fsl_clock.o
- .debug_macro   0x00000000000008f1      0x131 ./drivers/fsl_flexcomm.o
- .debug_macro   0x0000000000000a22       0x10 ./drivers/fsl_flexcomm.o
- .debug_macro   0x0000000000000a32      0x138 ./drivers/fsl_gpio.o
- .debug_macro   0x0000000000000b6a      0x128 ./drivers/fsl_reset.o
- .debug_macro   0x0000000000000c92      0x140 ./drivers/fsl_usart.o
- .debug_macro   0x0000000000000dd2       0x16 ./drivers/fsl_usart.o
- .debug_macro   0x0000000000000de8       0xdf ./device/system_LPC54114_cm4.o
- .debug_macro   0x0000000000000ec7      0x147 ./component/uart/usart_adapter.o
- .debug_macro   0x000000000000100e       0x1c ./component/uart/usart_adapter.o
- .debug_macro   0x000000000000102a      0x151 ./component/serial_manager/serial_manager.o
- .debug_macro   0x000000000000117b      0x142 ./component/serial_manager/serial_port_uart.o
- .debug_macro   0x00000000000012bd       0x1c ./component/serial_manager/serial_port_uart.o
- .debug_macro   0x00000000000012d9      0x192 ./board/board.o
- .debug_macro   0x000000000000146b       0x28 ./board/board.o
- .debug_macro   0x0000000000001493      0x148 ./board/clock_config.o
- .debug_macro   0x00000000000015db       0x1c ./board/clock_config.o
- .debug_macro   0x00000000000015f7      0x13f ./board/pin_mux.o
+ .debug_macro   0x0000000000000657       0x8e ./source/gpio.o
+ .debug_macro   0x00000000000006e5       0x11 ./source/semihost_hardfault.o
+ .debug_macro   0x00000000000006f6      0x1e5 ./drivers/fsl_clock.o
+ .debug_macro   0x00000000000008db       0x22 ./drivers/fsl_clock.o
+ .debug_macro   0x00000000000008fd      0x131 ./drivers/fsl_flexcomm.o
+ .debug_macro   0x0000000000000a2e       0x10 ./drivers/fsl_flexcomm.o
+ .debug_macro   0x0000000000000a3e      0x138 ./drivers/fsl_gpio.o
+ .debug_macro   0x0000000000000b76      0x128 ./drivers/fsl_reset.o
+ .debug_macro   0x0000000000000c9e      0x140 ./drivers/fsl_usart.o
+ .debug_macro   0x0000000000000dde       0x16 ./drivers/fsl_usart.o
+ .debug_macro   0x0000000000000df4       0xdf ./device/system_LPC54114_cm4.o
+ .debug_macro   0x0000000000000ed3      0x147 ./component/uart/usart_adapter.o
+ .debug_macro   0x000000000000101a       0x1c ./component/uart/usart_adapter.o
+ .debug_macro   0x0000000000001036      0x151 ./component/serial_manager/serial_manager.o
+ .debug_macro   0x0000000000001187      0x142 ./component/serial_manager/serial_port_uart.o
+ .debug_macro   0x00000000000012c9       0x1c ./component/serial_manager/serial_port_uart.o
+ .debug_macro   0x00000000000012e5      0x192 ./board/board.o
+ .debug_macro   0x0000000000001477       0x28 ./board/board.o
+ .debug_macro   0x000000000000149f      0x148 ./board/clock_config.o
+ .debug_macro   0x00000000000015e7       0x1c ./board/clock_config.o
+ .debug_macro   0x0000000000001603      0x13f ./board/pin_mux.o
 
 .debug_line     0x0000000000000000     0x46ba
  .debug_line    0x0000000000000000      0x45b ./utilities/fsl_debug_console.o
@@ -2570,40 +2570,40 @@ OUTPUT(gpio.axf elf32-littlearm)
  .debug_line    0x0000000000004026      0x32f ./board/pin_mux.o
  .debug_line    0x0000000000004355      0x365 /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
 
-.debug_str      0x0000000000000000    0x4c291
+.debug_str      0x0000000000000000    0x4c2c5
  .debug_str     0x0000000000000000    0x4631d ./utilities/fsl_debug_console.o
                                       0x463ee (size before relaxing)
  .debug_str     0x000000000004631d      0x626 ./startup/startup_lpc5411x.o
                                        0x3408 (size before relaxing)
- .debug_str     0x0000000000046943     0x219a ./source/gpio.o
-                                      0x473e5 (size before relaxing)
- .debug_str     0x0000000000048add       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x0000000000046943     0x21ce ./source/gpio.o
+                                      0x47419 (size before relaxing)
+ .debug_str     0x0000000000048b11       0x1f ./source/semihost_hardfault.o
                                        0x2dc2 (size before relaxing)
- .debug_str     0x0000000000048afc     0x13b4 ./drivers/fsl_clock.o
+ .debug_str     0x0000000000048b30     0x13b4 ./drivers/fsl_clock.o
                                       0x47977 (size before relaxing)
- .debug_str     0x0000000000049eb0      0x813 ./drivers/fsl_flexcomm.o
+ .debug_str     0x0000000000049ee4      0x813 ./drivers/fsl_flexcomm.o
                                       0x466b8 (size before relaxing)
- .debug_str     0x000000000004a6c3       0x7b ./drivers/fsl_gpio.o
+ .debug_str     0x000000000004a6f7       0x7b ./drivers/fsl_gpio.o
                                       0x461b4 (size before relaxing)
- .debug_str     0x000000000004a73e      0x117 ./drivers/fsl_reset.o
+ .debug_str     0x000000000004a772      0x117 ./drivers/fsl_reset.o
                                       0x45453 (size before relaxing)
- .debug_str     0x000000000004a855      0xb11 ./drivers/fsl_usart.o
+ .debug_str     0x000000000004a889      0xb11 ./drivers/fsl_usart.o
                                       0x4644d (size before relaxing)
- .debug_str     0x000000000004b366      0x13e ./device/system_LPC54114_cm4.o
+ .debug_str     0x000000000004b39a      0x13e ./device/system_LPC54114_cm4.o
                                       0x43af9 (size before relaxing)
- .debug_str     0x000000000004b4a4      0x324 ./component/uart/usart_adapter.o
+ .debug_str     0x000000000004b4d8      0x324 ./component/uart/usart_adapter.o
                                       0x45fa7 (size before relaxing)
- .debug_str     0x000000000004b7c8      0x36c ./component/serial_manager/serial_manager.o
+ .debug_str     0x000000000004b7fc      0x36c ./component/serial_manager/serial_manager.o
                                       0x4530d (size before relaxing)
- .debug_str     0x000000000004bb34       0xfc ./component/serial_manager/serial_port_uart.o
+ .debug_str     0x000000000004bb68       0xfc ./component/serial_manager/serial_port_uart.o
                                       0x453ba (size before relaxing)
- .debug_str     0x000000000004bc30       0x50 ./board/board.o
+ .debug_str     0x000000000004bc64       0x50 ./board/board.o
                                       0x4729f (size before relaxing)
- .debug_str     0x000000000004bc80       0x73 ./board/clock_config.o
+ .debug_str     0x000000000004bcb4       0x73 ./board/clock_config.o
                                       0x45c0c (size before relaxing)
- .debug_str     0x000000000004bcf3       0x81 ./board/pin_mux.o
-                                      0x4590f (size before relaxing)
- .debug_str     0x000000000004bd74      0x51d /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
+ .debug_str     0x000000000004bd27       0x81 ./board/pin_mux.o
+                                      0x45943 (size before relaxing)
+ .debug_str     0x000000000004bda8      0x51d /home/jimit/Zumo_robo_Motor_Driver/gpio/libs/libpower_cm4_hardabi.a(fsl_power_lib.o)
                                         0xbcd (size before relaxing)
 
 .comment        0x0000000000000000       0xfe

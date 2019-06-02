@@ -243,7 +243,27 @@
                <description></description>
                <options/>
                <dependencies/>
-               <instances/>
+               <instances>
+                  <instance name="CTIMER_1" type="ctimer" type_id="ctimer_c8b90232d8b6318ba1dac2cf08fb5f4a" mode="Capture_Match" peripheral="CTIMER1" enabled="false">
+                     <config_set name="fsl_ctimer" quick_selection="default">
+                        <struct name="ctimerConfig">
+                           <setting name="mode" value="kCTIMER_TimerMode"/>
+                           <setting name="clockSource" value="FunctionClock"/>
+                           <setting name="clockSourceFreq" value="BOARD_BootClockFROHF48M"/>
+                           <setting name="timerPrescaler" value=""/>
+                        </struct>
+                        <setting name="EnableTimerInInit" value="false"/>
+                        <array name="matchChannels"/>
+                        <struct name="interruptCallbackConfig">
+                           <struct name="interrupt">
+                              <setting name="IRQn" value="CTIMER1_IRQn"/>
+                              <setting name="enable_priority" value="false"/>
+                           </struct>
+                           <setting name="callback" value="kCTIMER_NoCallback"/>
+                        </struct>
+                     </config_set>
+                  </instance>
+               </instances>
             </functional_group>
          </functional_groups>
          <components>

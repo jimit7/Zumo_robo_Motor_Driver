@@ -81,6 +81,18 @@ void BOARD_InitBootPins(void);
 #define PIO021_FUNC_ALT0 0x00u
 /*!
  * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO025_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO025_FUNC_ALT0 0x00u
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
+#define PIO026_DIGIMODE_DIGITAL 0x01u
+/*!
+ * @brief Selects pin function.: Alternative connection 0. */
+#define PIO026_FUNC_ALT0 0x00u
+/*!
+ * @brief Select Analog/Digital mode.: Digital mode. */
 #define PIO114_DIGIMODE_DIGITAL 0x01u
 /*!
  * @brief Selects pin function.: Alternative connection 3. */
@@ -117,10 +129,17 @@ void BOARD_InitBootPins(void);
 
 /*! @name PIO0_19 (number 59), J1[9]/J2[8]/U5[6]/P0_19-FC5_SCK-SPIFI_CSn
   @{ */
-#define BOARD_INITPINS_SPI_FLASH_SCK_GPIO GPIO /*!<@brief GPIO device name: GPIO */
-#define BOARD_INITPINS_SPI_FLASH_SCK_PORT 0U   /*!<@brief PORT device name: 0U */
-#define BOARD_INITPINS_SPI_FLASH_SCK_PIN 19U   /*!<@brief 0U pin index: 19 */
-                                               /* @} */
+#define BOARD_INITPINS_L_SPEED_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_L_SPEED_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_L_SPEED_PIN 19U   /*!<@brief 0U pin index: 19 */
+                                         /* @} */
+
+/*! @name PIO0_21 (number 61), J2[2]/P0_21-CLKOUT-SPIFI_CLK
+  @{ */
+#define BOARD_INITPINS_R_SPEED_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_R_SPEED_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_R_SPEED_PIN 21U   /*!<@brief 0U pin index: 21 */
+                                         /* @} */
 
 /*! @name PIO0_20 (number 60), J1[13]/U5[5]/P0_20-FC5_RXD_SDA_MOSI
   @{ */
@@ -131,15 +150,17 @@ void BOARD_InitBootPins(void);
 
 /*! @name PIO0_26 (number 4), J1[3]/JS5[1]/U10[5]/P0_26-FC4_SDAX
   @{ */
-#define BOARD_INITPINS_FC4_SDAX_PORT 0U /*!<@brief PORT device name: 0U */
-#define BOARD_INITPINS_FC4_SDAX_PIN 26U /*!<@brief 0U pin index: 26 */
-                                        /* @} */
+#define BOARD_INITPINS_FC4_SDAX_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_FC4_SDAX_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_FC4_SDAX_PIN 26U   /*!<@brief 0U pin index: 26 */
+                                          /* @} */
 
 /*! @name PIO0_25 (number 3), J1[1]/JS4[1]/U10[7]/P0_25-FC4_SCLX
   @{ */
-#define BOARD_INITPINS_FC4_SCLX_PORT 0U /*!<@brief PORT device name: 0U */
-#define BOARD_INITPINS_FC4_SCLX_PIN 25U /*!<@brief 0U pin index: 25 */
-                                        /* @} */
+#define BOARD_INITPINS_FC4_SCLX_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_FC4_SCLX_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_FC4_SCLX_PIN 25U   /*!<@brief 0U pin index: 25 */
+                                          /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.

@@ -17,12 +17,12 @@
 #define RIGHT_MOTOR_SIGNAL1 kSCTIMER_Out_4				//D10 pin
 #define RIGHT_MOTOR_SIGNAL2 kSCTIMER_Out_5				//D9 pin
 #define GPIO_PORT 0U
-#define left_motor_speedup 18U
-#define left_motor_speeddn 19U
-#define right_motor_speedup 25U
-#define right_motor_speeddn 26U
-#define left_motor_dir 20U
-#define right_motor_dir 21U
+#define l_motor_speedup 18U
+#define l_motor_speeddn 19U
+#define r_motor_speedup 20U
+#define r_motor_speeddn 21U
+#define l_motor_dir 25U
+#define r_motor_dir 26U
 
 /*
  * @brief   Application entry point.
@@ -70,7 +70,7 @@ int main(void) {
   	/* Init board hardware. */
     BOARD_InitBootPins();
     BOARD_InitBootClocks();
-    BOARD_InitBootPeripherals();
+   // BOARD_InitBootPeripherals();
   	/* Init FSL debug console. */
     BOARD_InitDebugConsole();
 
@@ -80,14 +80,14 @@ int main(void) {
 
 
       // GPIO_PortInit(GPIO, BOARD_lefft_motor_speedup_PORT);
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_left_motor_speedup_PIN, &left_motor_speedup);
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_left_motor_speeddn_PIN, &left_motor_speeddn);
+     GPIO_PinInit(GPIO, GPIO_PORT, l_motor_speedup, &left_motor_speedup);
+     GPIO_PinInit(GPIO, GPIO_PORT, l_motor_speeddn, &left_motor_speeddn);
 
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_right_motor_speedup_PIN, &right_motor_speedup);
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_right_motor_speeddn_PIN, &right_motor_speeddn);
+     GPIO_PinInit(GPIO, GPIO_PORT, r_motor_speedup, &right_motor_speedup);
+     GPIO_PinInit(GPIO, GPIO_PORT, r_motor_speeddn, &right_motor_speeddn);
 
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_left_motor_dir_PIN, &left_motor_dir);
-     GPIO_PinInit(GPIO, GPIO_PORT, BOARD_right_motor_dir_PIN, &right_motor_dir);
+     GPIO_PinInit(GPIO, GPIO_PORT, l_motor_dir, &left_motor_dir);
+     GPIO_PinInit(GPIO, GPIO_PORT, r_motor_dir, &right_motor_dir);
 
 
     sctimerClock = SCTIMER_CLK_FREQ;
@@ -136,9 +136,9 @@ int main(void) {
     /* Enter an infinite loop, just incrementing a counter. */
     while(1) {
 
-    	if(GPIO_PinRead(GPIO, BOARD_left_motor_speedup_PORT, BOARD_left_motor_speedup_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_speedup)==0)
     	{
-    		while(GPIO_PinRead(GPIO, BOARD_left_motor_speedup_PORT, BOARD_left_motor_speedup_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_speedup)==0);
     		dutycycle_left=dutycycle_left+5;
     		if(dutycycle_left>100)
     			dutycycle_left=60;
@@ -146,18 +146,18 @@ int main(void) {
 
     	}
 
-    	if(GPIO_PinRead(GPIO, BOARD_left_motor_speeddn_PORT, BOARD_left_motor_speeddn_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_speeddn)==0)
     	    	{
-    		while(GPIO_PinRead(GPIO, BOARD_left_motor_speeddn_PORT, BOARD_left_motor_speeddn_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_speeddn)==0);
     		dutycycle_left=dutycycle_left-5;
     		if(dutycycle_left<60)
     			dutycycle_left=60;
     	    	}
 
 
-    	if(GPIO_PinRead(GPIO, BOARD_right_motor_speedup_PORT, BOARD_right_motor_speedup_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_speedup)==0)
     	    	{
-    		while(GPIO_PinRead(GPIO, BOARD_right_motor_speedup_PORT, BOARD_right_motor_speedup_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_speedup)==0);
     		dutycycle_right=dutycycle_right+5;
     		 if(dutycycle_right>=100)
     		    dutycycle_right=60;
@@ -165,18 +165,18 @@ int main(void) {
     	    	}
 
 
-    	if(GPIO_PinRead(GPIO, BOARD_right_motor_speeddn_PORT, BOARD_right_motor_speeddn_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_speeddn)==0)
     	    	{
-    		while(GPIO_PinRead(GPIO, BOARD_right_motor_speeddn_PORT, BOARD_right_motor_speeddn_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_speeddn)==0);
     		dutycycle_right=dutycycle_right-5;
 
     		if(dutycycle_right<=60)
     			dutycycle_right=60;
     	    	}
 
-    	if(GPIO_PinRead(GPIO, BOARD_left_motor_dir_PORT, BOARD_left_motor_dir_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_dir)==0)
     	{
-    		while(GPIO_PinRead(GPIO, BOARD_left_motor_dir_PORT, BOARD_left_motor_dir_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, l_motor_dir)==0);
     		a=a+1;
     		if (a>2)
     		{
@@ -186,9 +186,9 @@ int main(void) {
 
     	}
 
-    	if(GPIO_PinRead(GPIO, BOARD_right_motor_dir_PORT, BOARD_right_motor_dir_PIN)==0)
+    	if(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_dir)==0)
     	    	{
-    		while(GPIO_PinRead(GPIO, BOARD_right_motor_dir_PORT, BOARD_right_motor_dir_PIN)==0);
+    		while(GPIO_PinRead(GPIO, GPIO_PORT, r_motor_dir)==0);
     		b=b+1;
     		  if (b>2)
     		   {

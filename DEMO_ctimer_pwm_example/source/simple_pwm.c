@@ -101,6 +101,8 @@ int main(void)
     GPIO_PinInit(GPIO, GPIO_PORT, Left_Forward, &GPIO_config);
     GPIO_PinInit(GPIO, GPIO_PORT, Left_Reverse, &GPIO_config);
     GPIO_PinInit(GPIO, GPIO_PORT, Right_Forward, &GPIO_config);
+
+
     GPIO_PinInit(GPIO, GPIO_PORT, Right_Reverse, &GPIO_config);
     /* Get the PWM period match value and pulse width match value of 20Khz PWM signal with 20% dutycycle */
     CTIMER_GetPwmPeriodValue(20000, 20, timerClock);

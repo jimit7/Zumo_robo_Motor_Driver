@@ -20,8 +20,11 @@
  * Definitions
  ******************************************************************************/
 #define CTIMER CTIMER0                 /* Timer 0 */
-#define CTIMER_MAT_OUT kCTIMER_Match_1 /* Match output 1 */
+#define CTIMER_MAT_OUT kCTIMER_Match_1
+#define CTIMER_MAT_OUT1 kCTIMER_Match_2/* Match output 1 */
 #define CTIMER_CLK_FREQ CLOCK_GetFreq(kCLOCK_AsyncApbClk)
+#define GPIO_PORT 0U
+#define Left_Forward 18U
 
 /*******************************************************************************
  * Prototypes
@@ -59,9 +62,13 @@ status_t CTIMER_GetPwmPeriodValue(uint32_t pwmFreqHz, uint8_t dutyCyclePercent, 
 int main(void)
 {
     ctimer_config_t config;
+    gpio_pin_config_t GPIO_config = {
+        	        kGPIO_DigitalInput,
+        	    };
     uint32_t srcClock_Hz;
     uint32_t timerClock;
-    
+    uint32_t speed = 60;
+    uint8_t Right=0,a;
     /* Init hardware*/
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
@@ -86,12 +93,59 @@ int main(void)
 
     CTIMER_Init(CTIMER, &config);
 
+    GPIO_PortInit(GPIO, GPIO_PORT);
+    GPIO_PinInit(GPIO, GPIO_PORT, Left_Forward, &GPIO_config);
     /* Get the PWM period match value and pulse width match value of 20Khz PWM signal with 20% dutycycle */
     CTIMER_GetPwmPeriodValue(20000, 20, timerClock);
     CTIMER_SetupPwmPeriod(CTIMER, CTIMER_MAT_OUT, g_pwmPeriod, g_pulsePeriod, false);
+    CTIMER_GetPwmPeriodValue(20000, 40, timerClock);
+    CTIMER_SetupPwmPeriod(CTIMER, CTIMER_MAT_OUT1, g_pwmPeriod, g_pulsePeriod, false);
     CTIMER_StartTimer(CTIMER);
 
     while (1)
     {
+    	  if(GPIO_PinRead(GPIO, GPIO_PORT, Left_Forward)==0)
+    	    {
+    	    	a=a+1;
+    	    	 if(a=1)
+    	    	{
+    	    		Right = 1;
+    	    		printf("%d\n",a);
+    	    	}
+    	    	else if(a=2)
+    	    	{
+    	    		Right = 2;
+    	    	}
+    	    	else if(a=3)
+    	    	{
+    	    		Right =3 ;
+    	    	}
+    	    	else
+    	    	{
+    	    		a = 0;
+    	    		Right =0;
+    	    	}
+    	    	}
+    	    printf("%d\n",Right);
+    	    while(Right==1)
+    	    {
+    	        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT,0);
+    	        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT1, 0);
+    	    }
+    	    while(Right==2)
+    	    {
+    	        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT,0);
+    	        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT1, speed);
+    	    }
+    	    while(Right==3)
+    	    {
+    	        CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT,speed);
+                CTIMER_UpdatePwmDutycycle(CTIMER, CTIMER_MAT_OUT1, 0);
+    	    }
+
+    	    CTIMER_StartTimer(CTIMER);
+
+
+
     }
 }

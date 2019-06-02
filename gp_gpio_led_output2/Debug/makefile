@@ -37,7 +37,7 @@ all: gp_gpio_led_output2.axf
 gp_gpio_led_output2.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Documents/MCUXpresso_10.3.1_2233/workspace/gp_gpio_led_output2/libs" -Xlinker -Map="gp_gpio_led_output2.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T gp_gpio_led_output_Debug.ld -o "gp_gpio_led_output2.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -L"/home/jimit/Zumo_robo_Motor_Driver/gp_gpio_led_output2/libs" -Xlinker -Map="gp_gpio_led_output2.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -mcpu=cortex-m4 -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -T gp_gpio_led_output_Debug.ld -o "gp_gpio_led_output2.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
