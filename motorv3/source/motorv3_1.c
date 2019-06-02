@@ -17,9 +17,9 @@
 #define DEMO_FOURTH_SCTIMER_OUT	kSCTIMER_Out_7
 #define GPIO_PORT 0U
 #define Left_PIN1 18U
-#define Left_PIN2 19U
-#define Right_PIN1 25U
-#define Right_PIN2 26U
+#define Right_PIN1 19U
+#define R_PIN1 25U
+#define L_PIN2 26U
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -42,9 +42,9 @@ int main(void)
 	    };
     sctimer_config_t sctimerInfo;
     sctimer_pwm_signal_param_t pwmParam;
-    uint32_t event1,event2,pin1 ,	speed=70;
+    uint32_t event1,event2,event3,event4,pin1 ,	speed=70;
     uint32_t sctimerClock;
-uint8_t right,a;
+    uint8_t right,a,left,b;
     /* Board pin, clock, debug console init */
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
@@ -55,6 +55,7 @@ uint8_t right,a;
     BOARD_InitDebugConsole();
     GPIO_PortInit(GPIO, GPIO_PORT);
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN1, &led_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN1, &led_config);
     sctimerClock = SCTIMER_CLK_FREQ;
 
 
@@ -85,6 +86,21 @@ uint8_t right,a;
     {
     	        return -1;
     }
+    pwmParam.output = DEMO_THIRD_SCTIMER_OUT;
+       pwmParam.level = kSCTIMER_HighTrue;
+       pwmParam.dutyCyclePercent = 1;
+       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event3) == kStatus_Fail)
+       {
+           return -1;
+       }
+
+       pwmParam.output = DEMO_FOURTH_SCTIMER_OUT;
+       pwmParam.level = kSCTIMER_HighTrue;
+       pwmParam.dutyCyclePercent =2 ;
+       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event4) == kStatus_Fail)
+       {
+       	        return -1;
+       }
     //SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 while(1)
 {
@@ -109,6 +125,26 @@ while(1)
 		}
 	}
 	}
+	if(GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN1)==0)
+		{
+
+			while(GPIO_PinRead(GPIO, GPIO_PORT, Right_PIN1)==0)
+		{
+			left=left+1;
+			if(left==1)
+		    {
+			b = 1;
+			}
+			else if(left==2){
+				b=2;
+			}
+			else
+			{
+				left =0 ;
+				b=0;
+			}
+		}
+		}
 
 		 if(a==1)
 		{
@@ -121,6 +157,20 @@ while(1)
 					printf("two");
 								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_SECOND_SCTIMER_OUT, speed, event2);
 								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FIRST_SCTIMER_OUT, 1, event1);
+				}
+
+
+		 if(b==1)
+		{
+			printf("third");
+						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, 1, event2);
+						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, speed, event1);
+		}
+		 if(b==2)
+				{
+					printf("fouth");
+								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, speed, event2);
+								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, 1, event1);
 				}
 
 		}
