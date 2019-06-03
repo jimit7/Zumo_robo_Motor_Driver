@@ -21,8 +21,8 @@
 #define l_motor_speeddn 19U
 #define r_motor_speedup 20U
 #define r_motor_speeddn 21U
-#define l_motor_dir 25U
-#define r_motor_dir 26U
+#define l_motor_dir 2U
+#define r_motor_dir 3U
 
 /*
  * @brief   Application entry point.

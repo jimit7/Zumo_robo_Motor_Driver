@@ -18,8 +18,8 @@
 #define GPIO_PORT 0U
 #define Left_PIN1 18U
 #define Right_PIN1 19U
-#define R_PIN1 25U
-#define L_PIN2 26U
+#define R_PIN1 20U
+#define L_PIN2 21U
 /*******************************************************************************
  * Prototypes
  ******************************************************************************/
@@ -40,11 +40,17 @@ int main(void)
  	gpio_pin_config_t led_config = {
 	        kGPIO_DigitalInput,
 	    };
+ 	gpio_pin_config_t led1_config = {
+ 		        kGPIO_DigitalInput,
+ 		    };
+ 	gpio_pin_config_t led2_config = {
+ 		        kGPIO_DigitalInput,
+ 		    };
     sctimer_config_t sctimerInfo;
     sctimer_pwm_signal_param_t pwmParam;
-    uint32_t event1,event2,event3,event4,pin1 ,	speed=70;
+    uint32_t event1,event2,event3,event4,pin1 ,	speed;
     uint32_t sctimerClock;
-    uint8_t right,a,left,b;
+    uint8_t right,a,left,b,c;
     /* Board pin, clock, debug console init */
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
@@ -55,7 +61,8 @@ int main(void)
     BOARD_InitDebugConsole();
     GPIO_PortInit(GPIO, GPIO_PORT);
     GPIO_PinInit(GPIO, GPIO_PORT, Left_PIN1, &led_config);
-    GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN1, &led_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, Right_PIN1, &led1_config);
+    GPIO_PinInit(GPIO, GPIO_PORT, R_PIN1, &led2_config);
     sctimerClock = SCTIMER_CLK_FREQ;
 
 
@@ -101,10 +108,73 @@ int main(void)
        {
        	        return -1;
        }
+       c=0,left=0,right=0;
     //SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 while(1)
 {
 	//pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);//uint32_t speed=70;
+
+
+	if(GPIO_PinRead(GPIO, GPIO_PORT, R_PIN1)==0)
+	{
+	//while(GPIO_PinRead(GPIO, GPIO_PORT, R_PIN1)==0)
+	//{
+		c=c+1;
+		if(c==1)
+		{
+			speed=60;
+    printf("a\n");
+		}
+		else if(c==2)
+		{
+			speed =70;
+			 printf("b\n");
+		}
+		else if(c==3)
+		{
+			speed =80;
+			 printf("c\n");
+
+		}
+		else if(c==4)
+		{
+			speed = 90;
+			 printf("c\n");
+		}
+		else if(c==5)
+		{
+			speed = 100;
+			 printf("d\n");
+
+		}
+		else
+		{
+			speed=60;
+			 printf("e	\n");
+			c=0;
+
+		}
+	//}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	if(GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1)==0)
 	{
 
@@ -174,8 +244,10 @@ while(1)
 				}
 
 		}
-    return 0;
+
 	}
+       return 0;
+}
 
 	 // SCTIMER_StartTimer(SCT0, kSCTIMER_Counter_L);
 

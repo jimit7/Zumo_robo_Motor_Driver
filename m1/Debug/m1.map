@@ -2696,41 +2696,41 @@ OUTPUT(m1.axf elf32-littlearm)
  .debug_line    0x000000000000431c      0x338 ./board/clock_config.o
  .debug_line    0x0000000000004654      0x393 ./board/pin_mux.o
 
-.debug_str      0x0000000000000000    0x4d302
+.debug_str      0x0000000000000000    0x4d2b0
  .debug_str     0x0000000000000000    0x46321 ./utilities/fsl_debug_console.o
                                       0x463f2 (size before relaxing)
  .debug_str     0x0000000000046321      0x626 ./startup/startup_lpc5411x.o
                                        0x33f5 (size before relaxing)
- .debug_str     0x0000000000046947     0x252a ./source/m.o
-                                      0x4787d (size before relaxing)
- .debug_str     0x0000000000048e71       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x0000000000046947     0x24f8 ./source/m.o
+                                      0x4784b (size before relaxing)
+ .debug_str     0x0000000000048e3f       0x1f ./source/semihost_hardfault.o
                                        0x2daf (size before relaxing)
- .debug_str     0x0000000000048e90     0x1aee ./drivers/fsl_clock.o
+ .debug_str     0x0000000000048e5e     0x1aee ./drivers/fsl_clock.o
                                       0x47964 (size before relaxing)
- .debug_str     0x000000000004a97e      0x813 ./drivers/fsl_flexcomm.o
+ .debug_str     0x000000000004a94c      0x813 ./drivers/fsl_flexcomm.o
                                       0x466a5 (size before relaxing)
- .debug_str     0x000000000004b191       0x7b ./drivers/fsl_gpio.o
+ .debug_str     0x000000000004b15f       0x7b ./drivers/fsl_gpio.o
                                       0x461a1 (size before relaxing)
- .debug_str     0x000000000004b20c      0x117 ./drivers/fsl_reset.o
+ .debug_str     0x000000000004b1da      0x117 ./drivers/fsl_reset.o
                                       0x45440 (size before relaxing)
- .debug_str     0x000000000004b323      0x6ff ./drivers/fsl_sctimer.o
+ .debug_str     0x000000000004b2f1      0x6ff ./drivers/fsl_sctimer.o
                                       0x46e6d (size before relaxing)
- .debug_str     0x000000000004ba22      0xafc ./drivers/fsl_usart.o
+ .debug_str     0x000000000004b9f0      0xafc ./drivers/fsl_usart.o
                                       0x4643a (size before relaxing)
- .debug_str     0x000000000004c51e      0x13e ./device/system_LPC54114_cm4.o
+ .debug_str     0x000000000004c4ec      0x13e ./device/system_LPC54114_cm4.o
                                       0x43ae6 (size before relaxing)
- .debug_str     0x000000000004c65c      0x324 ./component/uart/usart_adapter.o
+ .debug_str     0x000000000004c62a      0x324 ./component/uart/usart_adapter.o
                                       0x45f94 (size before relaxing)
- .debug_str     0x000000000004c980      0x36c ./component/serial_manager/serial_manager.o
+ .debug_str     0x000000000004c94e      0x36c ./component/serial_manager/serial_manager.o
                                       0x452fa (size before relaxing)
- .debug_str     0x000000000004ccec       0xfc ./component/serial_manager/serial_port_uart.o
+ .debug_str     0x000000000004ccba       0xfc ./component/serial_manager/serial_port_uart.o
                                       0x453a7 (size before relaxing)
- .debug_str     0x000000000004cde8       0x50 ./board/board.o
+ .debug_str     0x000000000004cdb6       0x50 ./board/board.o
                                       0x4728c (size before relaxing)
- .debug_str     0x000000000004ce38       0x73 ./board/clock_config.o
+ .debug_str     0x000000000004ce06       0x73 ./board/clock_config.o
                                       0x45bf9 (size before relaxing)
- .debug_str     0x000000000004ceab      0x457 ./board/pin_mux.o
-                                      0x45f64 (size before relaxing)
+ .debug_str     0x000000000004ce79      0x437 ./board/pin_mux.o
+                                      0x45f26 (size before relaxing)
 
 .comment        0x0000000000000000       0x7f
  .comment       0x0000000000000000       0x7f ./utilities/fsl_debug_console.o

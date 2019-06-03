@@ -81,16 +81,16 @@ void BOARD_InitBootPins(void);
 #define PIO021_FUNC_ALT0 0x00u
 /*!
  * @brief Select Analog/Digital mode.: Digital mode. */
-#define PIO025_DIGIMODE_DIGITAL 0x01u
+#define PIO02_DIGIMODE_DIGITAL 0x01u
 /*!
  * @brief Selects pin function.: Alternative connection 0. */
-#define PIO025_FUNC_ALT0 0x00u
+#define PIO02_FUNC_ALT0 0x00u
 /*!
  * @brief Select Analog/Digital mode.: Digital mode. */
-#define PIO026_DIGIMODE_DIGITAL 0x01u
+#define PIO03_DIGIMODE_DIGITAL 0x01u
 /*!
  * @brief Selects pin function.: Alternative connection 0. */
-#define PIO026_FUNC_ALT0 0x00u
+#define PIO03_FUNC_ALT0 0x00u
 /*!
  * @brief Select Analog/Digital mode.: Digital mode. */
 #define PIO114_DIGIMODE_DIGITAL 0x01u
@@ -148,19 +148,19 @@ void BOARD_InitBootPins(void);
 #define BOARD_INITPINS_SPI_FLASH_MOSI_PIN 20U   /*!<@brief 0U pin index: 20 */
                                                 /* @} */
 
-/*! @name PIO0_26 (number 4), J1[3]/JS5[1]/U10[5]/P0_26-FC4_SDAX
+/*! @name PIO0_2 (number 36), J9[1]/P0_2-GPIO_SPI_CS
   @{ */
-#define BOARD_INITPINS_FC4_SDAX_GPIO GPIO /*!<@brief GPIO device name: GPIO */
-#define BOARD_INITPINS_FC4_SDAX_PORT 0U   /*!<@brief PORT device name: 0U */
-#define BOARD_INITPINS_FC4_SDAX_PIN 26U   /*!<@brief 0U pin index: 26 */
-                                          /* @} */
+#define BOARD_INITPINS_l_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_l_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_l_PIN 2U    /*!<@brief 0U pin index: 2 */
+                                   /* @} */
 
-/*! @name PIO0_25 (number 3), J1[1]/JS4[1]/U10[7]/P0_25-FC4_SCLX
+/*! @name PIO0_3 (number 37), J9[3]/P0_3-GPIO_SPI_CS
   @{ */
-#define BOARD_INITPINS_FC4_SCLX_GPIO GPIO /*!<@brief GPIO device name: GPIO */
-#define BOARD_INITPINS_FC4_SCLX_PORT 0U   /*!<@brief PORT device name: 0U */
-#define BOARD_INITPINS_FC4_SCLX_PIN 25U   /*!<@brief 0U pin index: 25 */
-                                          /* @} */
+#define BOARD_INITPINS_r_GPIO GPIO /*!<@brief GPIO device name: GPIO */
+#define BOARD_INITPINS_r_PORT 0U   /*!<@brief PORT device name: 0U */
+#define BOARD_INITPINS_r_PIN 3U    /*!<@brief 0U pin index: 3 */
+                                   /* @} */
 
 /*!
  * @brief Configures pin routing and optionally pin electrical features.
