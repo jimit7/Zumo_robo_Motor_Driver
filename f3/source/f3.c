@@ -48,9 +48,9 @@ int main(void)
  		    };
     sctimer_config_t sctimerInfo;
     sctimer_pwm_signal_param_t pwmParam;
-    uint32_t event1,event2,pin1 ,speed=80;
+    uint32_t event1,event2,event3,event4,speed=60;
     uint32_t sctimerClock;
-uint8_t right=0,a,left=0,b;
+    uint8_t right=0,a,left=0,b,c=0;
     /* Board pin, clock, debug console init */
     /* attach 12 MHz clock to FLEXCOMM0 (debug console) */
     CLOCK_AttachClk(BOARD_DEBUG_UART_CLK_ATTACH);
@@ -96,7 +96,7 @@ uint8_t right=0,a,left=0,b;
     pwmParam.output = DEMO_FOURTH_SCTIMER_OUT;
        pwmParam.level = kSCTIMER_HighTrue;
        pwmParam.dutyCyclePercent = 1;
-       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event1) == kStatus_Fail)
+       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event3) == kStatus_Fail)
        {
            return -1;
        }
@@ -104,7 +104,7 @@ uint8_t right=0,a,left=0,b;
        pwmParam.output = DEMO_THIRD_SCTIMER_OUT;
        pwmParam.level = kSCTIMER_HighTrue;
        pwmParam.dutyCyclePercent =2 ;
-       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event2) == kStatus_Fail)
+       if (SCTIMER_SetupPwm(SCT0, &pwmParam, kSCTIMER_EdgeAlignedPwm , 2400U, sctimerClock, &event4) == kStatus_Fail)
        {
        	        return -1;
        }
@@ -113,8 +113,71 @@ while(1)
 {
 	//pin1= GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN1);//uint32_t speed=70;
 
+if(GPIO_PinRead(GPIO,GPIO_PORT,Right_PIN1)==0)
+{
+	while(GPIO_PinRead(GPIO,GPIO_PORT,Right_PIN1)==0)
+	{
+		c=c+1;
+		if(c==1)
+		{
+			speed=65;
+			printf("1\n");
+		}
 
-       if(GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2)==0)
+		else if(c==2)
+				{
+					speed=75;
+					printf("2\n");
+				}
+		else if(c==3)
+				 {
+					speed=85;
+					printf("3\n");
+				 }
+		else if(c==4)
+				{
+					speed=95;
+					printf("4\n");
+				}
+		else if(c==5)
+				{
+					speed=100;
+					printf("5\n");
+				}
+		else
+		{
+			speed=60;
+					c=0;
+			printf("6\n");
+		}
+
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	if(GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2)==0)
        	{
 
        		while(GPIO_PinRead(GPIO, GPIO_PORT, Left_PIN2)==0)
@@ -138,14 +201,14 @@ while(1)
        		 if(b==1)
        		{
        			printf("THIRD\n");
-       						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, 1, event2);
-       						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, speed, event1);
+       						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, 1, event4);
+       						    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, speed, event3);
        		}
        		 if(b==2)
        				{
        					printf("FOURTH\n");
-       								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, speed, event2);
-       								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, 1, event1);
+       								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_FOURTH_SCTIMER_OUT, speed, event4);
+       								    SCTIMER_UpdatePwmDutycycle(SCT0,DEMO_THIRD_SCTIMER_OUT, 1, event3);
        				}
 
 
